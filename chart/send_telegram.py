@@ -92,7 +92,7 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
         files = {'photo': photo}
         keyboard = [
             [InlineKeyboardButton("🔗 Link to report", url=report_link)],
-            [InlineKeyboardButton("🔄 Restart the tests", callback_data='confirm_restart')],
+            # [InlineKeyboardButton("🔄 Restart the tests", callback_data='confirm_restart')],
         ]
         reply_markup = InlineKeyboardMarkup(keyboard)
         data = {
