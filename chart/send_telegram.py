@@ -46,7 +46,7 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     if int(passed) > 0:
         message += f"<code>• Passed: {passed}</code>\n"
     if int(failed) > 0:
-        message += f"<code>• Failed: {failed}</code>\n\n"
+        message += f"<code>• Failed: {failed}</code>\n"
         failed_tests = get_failed_tests(allure_report_path)
         for i, test in enumerate(failed_tests):
             if i >= 7:
@@ -60,7 +60,7 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
         if len(failed_tests) > 7:
             message += f"And {len(failed_tests) - 7} more failed tests...\n\n"
     if int(broken) > 0:
-        message += f"<code>• Broken: {broken}</code>\n\n"
+        message += f"<code>• Broken: {broken}</code>\n"
         broken_tests = get_broken_tests(allure_report_path)
         for i, test in enumerate(broken_tests):
             if i >= 7:
@@ -74,7 +74,7 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
         if len(broken_tests) > 7:
             message += f"And {len(broken_tests) - 7} more broken tests...\n\n"
     if int(skipped) > 0:
-        message += f"<code>• Skipped: {skipped}</code>\n\n"
+        message += f"<code>• Skipped: {skipped}</code>\n"
         skipped_tests = get_skipped_tests(allure_report_path)
         for i, test in enumerate(skipped_tests):
             if i >= 7:
