@@ -56,7 +56,7 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
             if len(name_parts) > 1 and is_url(name_parts[1]):
                 message += f'<a href="{name_parts[1]}">{name_parts[1]}</a>\n'  # Add the second part as a link if it's a URL
             if test['response_code']:
-                message += f"<code>{test['response_code']}</code>\n\n"
+                message += f"<code>{test['response_code']}</code>\n"
         if len(failed_tests) > 7:
             message += f"And {len(failed_tests) - 7} more failed tests...\n\n"
     if int(broken) > 0:
@@ -70,7 +70,7 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
             if len(name_parts) > 1 and is_url(name_parts[1]):
                 message += f'<a href="{name_parts[1]}">{name_parts[1]}</a>\n'  # Add the second part as a link if it's a URL
             if test['response_code']:
-                message += f"<code>{test['response_code']}</code>\n\n"
+                message += f"<code>{test['response_code']}</code>\n"
         if len(broken_tests) > 7:
             message += f"And {len(broken_tests) - 7} more broken tests...\n\n"
     if int(skipped) > 0:
@@ -84,7 +84,7 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
             if len(name_parts) > 1 and is_url(name_parts[1]):
                 message += f'<a href="{name_parts[1]}">{name_parts[1]}</a>\n'  # Add the second part as a link if it's a URL
             if test['response_code']:
-                message += f"<code>{test['response_code']}</code>\n\n"
+                message += f"<code>{test['response_code']}</code>\n"
         if len(skipped_tests) > 7:
             message += f"And {len(skipped_tests) - 7} more skipped tests...\n\n"
     print(f"Sending message: {message}")  # Log the message before sending

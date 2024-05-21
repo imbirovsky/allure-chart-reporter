@@ -4,7 +4,7 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
   repository_dispatch:
-#  push:
+  push:
 env:
   TEST_REPORT_URL: ${{ secrets.ALLURE_LINK }}
   ALLURE_RESULT_DIR: target/allure-results
