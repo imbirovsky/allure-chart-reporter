@@ -1,0 +1,109 @@
+name: Run tests and publish report
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+  repository_dispatch:
+#  push:
+env:
+  TEST_REPORT_URL: ${{ secrets.ALLURE_LINK }}
+  ALLURE_RESULT_DIR: target/allure-results
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: zulu
+          java-version: 17
+
+      - name: Run tests
+        continue-on-error: true
+        run: mvn clean test
+
+      - name: Load test report history
+        uses: actions/checkout@v3
+        if: always()
+        continue-on-error: true
+        with:
+          ref: master
+          path: gh-pages
+
+      - name: Build test report
+        uses: simple-elf/allure-report-action@v1.7
+        if: always()
+        with:
+          gh_pages: gh-pages
+          allure_history: allure-history
+          allure_results: ${{ env.ALLURE_RESULT_DIR }}
+
+      - name: Publish test report
+        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: master_reports
+          publish_dir: allure-report
+
+      - name: Install jq
+        run: sudo apt-get install jq
+
+      - name: Generate test report message
+        id: test_report_message
+        run: |
+          FAILED=$(jq .statistic.failed allure-report/widgets/summary.json)
+          echo "FAILED=$FAILED" >> $GITHUB_ENV
+          BROKEN=$(jq .statistic.broken allure-report/widgets/summary.json)
+          echo "BROKEN=$BROKEN" >> $GITHUB_ENV
+          SKIPPED=$(jq .statistic.skipped allure-report/widgets/summary.json)
+          echo "SKIPPED=$SKIPPED" >> $GITHUB_ENV
+          PASSED=$(jq .statistic.passed allure-report/widgets/summary.json)
+          echo "PASSED=$PASSED" >> $GITHUB_ENV
+          TOTAL=$(jq .statistic.total allure-report/widgets/summary.json)
+          echo "TOTAL=$TOTAL" >> $GITHUB_ENV
+          DURATION=$(jq .time.duration allure-report/widgets/summary.json)
+          echo "DURATION=$DURATION" >> $GITHUB_ENV
+          MINDURATION=$(jq .time.minDuration allure-report/widgets/summary.json)
+          echo "MINDURATION=$MINDURATION" >> $GITHUB_ENV
+          MAXDURATION=$(jq .time.maxDuration allure-report/widgets/summary.json)
+          echo "MAXDURATION=$MAXDURATION" >> $GITHUB_ENV
+          SUMDURATION=$(jq .time.sumDuration allure-report/widgets/summary.json)
+          echo "SUMDURATION=$SUMDURATION" >> $GITHUB_ENV
+          echo "::set-output name=message::Tests completed. \\
+          Failed: $FAILED, \\
+          Broken: $BROKEN, \\
+          Skipped: $SKIPPED, \\
+          Passed: $PASSED, \\
+          Total: $TOTAL"
+
+      - name: Install Python and required packages
+        run: |
+          sudo apt-get install python3 python3-pip
+          pip3 install python-telegram-bot matplotlib fontTools requests
+
+      - name: Generate chart
+        id: generate_chart
+        continue-on-error: true
+        run: |
+          python3 chart/generate_chart.py ${TOTAL} ${PASSED} ${FAILED} ${BROKEN} ${SKIPPED} ${SUMDURATION}
+
+      - name: Upload chart as artifact
+        uses: actions/upload-artifact@v2
+        continue-on-error: true
+        with:
+          name: chart
+          path: chart.png
+
+      - name: Download chart artifact
+        uses: actions/download-artifact@v2
+        continue-on-error: true
+        with:
+          name: chart
+          path: .
+
+      - name: Send notification to Telegram
+        run: |
+          python3 chart/send_telegram.py ${{ secrets.TELEGRAM_BOT_TOKEN }} ${{ secrets.TELEGRAM_CHAT_ID }} ./chart.png ${{ env.TOTAL }} ${{ env.PASSED }} ${{ env.FAILED }} ${{ env.BROKEN }} ${{ env.SKIPPED }} ${{ env.TEST_REPORT_URL }} ${{ env.ALLURE_RESULT_DIR }}
