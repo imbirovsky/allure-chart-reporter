@@ -45,7 +45,7 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
         message += f"<code>• {status.capitalize()}: {count}</code>\n"
         tests = get_tests_func(allure_report_path)
         for i, test in enumerate(tests):
-            if i >= 3:
+            if i >= 5:
                 break
             name_parts = test['name'].split('\n')
             message += f"\t\t<code>{name_parts[0]}</code>\n"
@@ -54,8 +54,8 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
             if test['response_code']:
                 message += f"\t\t<code>{test['response_code']}</code>\n"
             message += "\t\t\t\t\t\t-----\n"  # Add a separator between tests
-        if len(tests) > 3:
-            message += f"And {len(tests) - 3} more {status} tests...\n\n"
+        if len(tests) > 5:
+            message += f"And {len(tests) - 5} more {status} tests...\n\n"
         elif len(tests) > 0:
             message += "\n"
     return message

@@ -6,7 +6,6 @@ import constants.Constants.API.URL
 import constants.Constants.API.VERSION_API
 import constants.Constants.Countries.FRANCE
 import constants.Constants.Countries.GERMANY
-import constants.Constants.Countries.ITALY
 import constants.Constants.Countries.POLAND
 import constants.Constants.Countries.RUSSIA_IS_A_TERRORIST_STATE
 import constants.Constants.Countries.SPAIN
@@ -65,9 +64,8 @@ class GetInfoByCountry {
         throw SkipException("Skipping this test")
     }
 
-//    @Test
-    fun `This test will be skipped 2`() {
-        throw SkipException("Skipping this test 2")
+    @Test
+    fun `This test will be sucusess`() {
     }
 
     @Test
