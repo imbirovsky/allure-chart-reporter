@@ -25,7 +25,7 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     wedges, texts, autotexts = ax.pie(sizes, colors=colors, startangle=90, autopct='%1.2f%%', textprops={'color':'gray'})
 
     # Change the font size
-    plt.setp(autotexts, size=6)
+    plt.setp(autotexts, size=5)
 
     # Move the plot to the left
     fig.subplots_adjust(left=0.1, right=0.76)

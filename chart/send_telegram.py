@@ -77,9 +77,7 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
 
     footer = "                                  •••          "
     centered_footer = footer.center(50)
-    # message += "\n"
     message += centered_footer
-    centered_footer += "\n"
 
     print(f"Sending message: {message}")  # Log the message before sending
     with open(photo_path, 'rb') as photo:
