@@ -75,6 +75,8 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     if len(message) > 4050:
         message = message[:4050] + "\n\nMessage is cut off as it exceeds the limit of 4096 characters."
 
+    message += "\n ==================== \n"  # Your footer
+
     print(f"Sending message: {message}")  # Log the message before sending
     with open(photo_path, 'rb') as photo:
         files = {'photo': photo}
