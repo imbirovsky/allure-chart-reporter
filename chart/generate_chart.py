@@ -22,13 +22,15 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
 
     # Plot
     fig, ax = plt.subplots(figsize=(6.4 * 0.83, 4.8 * 0.83))
-    wedges, texts, autotexts = ax.pie(sizes, colors=colors, startangle=90, autopct='%1.2f%%', textprops={'color':'gray'}, shadow=True)
+    wedges, texts, autotexts = ax.pie(sizes, colors=colors, startangle=90, autopct='%1.2f%%', textprops={'color':'gray'})
 
     # Change the font size
     plt.setp(autotexts, size=5, weight="bold")
 
-    plt.title(logo_name)
+    # Set the title
+    plt.title(logo_name, fontproperties=custom_font)
 
+    # Set the title position
     plt.show()
 
     # Move the plot to the left
@@ -71,7 +73,7 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     plt.text(0, -0.10, f'{int(minutes)}min {int(seconds)}sec', horizontalalignment='center', verticalalignment='center', fontsize=6.5, color='grey', fontproperties=custom_font)
 
     # Add the text "logo_name" to the up of the legend
-    plt.text(1.82, 0.6, logo_name, horizontalalignment='center', verticalalignment='center', fontsize=11, color='black', fontproperties=custom_font)
+    # plt.text(1.82, 0.6, logo_name, horizontalalignment='center', verticalalignment='center', fontsize=11, color='black', fontproperties=custom_font)
 
     # Save the plot
     plt.savefig('chart.png', dpi=300, bbox_inches='tight', pad_inches=0.1)
