@@ -42,7 +42,7 @@ def get_skipped_tests(allure_report_path):
 def format_test_message(status, count, get_tests_func, allure_report_path):
     message = ""
     if int(count) > 0:
-        message += f"<code>• {status.capitalize()}: {count}</code>\n"
+        message += f"<b>• {status.capitalize()}: {count}</b>\n"
         tests = get_tests_func(allure_report_path)
         for i, test in enumerate(tests):
             if i >= 5:
@@ -56,16 +56,16 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
             message += "\n"
         if len(tests) > 5:
             message += f"And {len(tests) - 5} more {status} tests...\n\n"
-        elif len(tests) > 0:
-            message += "\n"
+        # elif len(tests) > 0:
+        #     message += "\n"
     return message
 
 def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link, allure_report_path):
     url = f"https://api.telegram.org/bot{token}/sendPhoto"
     message = "Tests completed\n\n"
-    message += f"<code>• Total: {total}</code>\n"
+    message += f"<b>• Total: {total}</b>\n"
     if int(passed) > 0:
-        message += f"<code>• Passed: {passed}</code>\n"
+        message += f"<b>• Passed: {passed}</b>\n"
     message += format_test_message('failed', failed, get_failed_tests, allure_report_path)
     message += format_test_message('broken', broken, get_broken_tests, allure_report_path)
     message += format_test_message('skipped', skipped, get_skipped_tests, allure_report_path)
