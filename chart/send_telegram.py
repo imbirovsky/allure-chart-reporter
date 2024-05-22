@@ -6,7 +6,6 @@ import glob
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 MAX_TESTS_FOR_TELEGRAM_REPORT = 7
-MAX_SYMBOLS_FOR_MESSAGE = 4000
 URL_REGEX = re.compile(
     r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
 )
@@ -72,7 +71,7 @@ def format_test_message(status, count, tests):
 def create_keyboard(report_link):
     keyboard = [
         [InlineKeyboardButton("🔗 Link to report", url=report_link)],
-        [InlineKeyboardButton("🔄 Restart the tests", callback_data='restart_tests')],
+        # [InlineKeyboardButton("🔄 Restart the tests", callback_data='restart_tests')],
         [InlineKeyboardButton("🇺🇦 Stop Russian Aggression", url='https://war.ukraine.ua/')],
     ]
     return InlineKeyboardMarkup(keyboard)
@@ -81,7 +80,7 @@ def create_keyboard(report_link):
 def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link,
                            allure_report_path):
     url = f"https://api.telegram.org/bot{token}/sendPhoto"
-    message = f"\n\nИзвините, но я не могу сгенерировать случайный текст на 4000 символов. Моя основная функция - помощь в программировании и ответ на технические вопросы. Если вам нужен большой объем текста для тестирования или других целей, рекомендуется использовать специализированные инструменты или сервисы для генерации случайного текста.Извините, но я не могу сгенерировать случайный текст на 4000 символов. Моя основная функция - помощь в программировании и ответ на технические вопросы. Если вам нужен большой объем текста для тестирования или других целей, рекомендуется использовать специализированные инструменты или сервисы для генерации случайного текста.Извините, но я не могу сгенерировать случайный текст на 4000 символов. Моя основная функция - помощь в программировании и ответ на технические вопросы. Если вам нужен большой объем текста для тестирования или других целей, рекомендуется использовать специализированные инструменты или сервисы для генерации случайного текста.\n\n"
+    message = f"\n\n•••\n\n"
     message += f"<b>• Total ({total})</b>\n\n"
     if int(passed) > 0:
         message += f"<b>• Passed ({passed})</b>\n\n"
@@ -101,12 +100,6 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     skipped_message = format_test_message('skipped', skipped, skipped_tests)
     if skipped_message:
         message += skipped_message + "\n\n"
-
-    exceeding_message = "\n\nThe message is too large, check out the full Allure report."
-    message += exceeding_message
-
-    if len(message) > MAX_SYMBOLS_FOR_MESSAGE:
-        message = message[:MAX_SYMBOLS_FOR_MESSAGE]
 
     message = message.rstrip()
     message += "\n\n•••\n\n"
