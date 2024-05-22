@@ -22,7 +22,7 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
 
     # Plot
     fig, ax = plt.subplots(figsize=(6.4 * 0.83, 4.8 * 0.83))
-    wedges, texts, autotexts = ax.pie(sizes, colors=colors, startangle=90, autopct='%1.1f%%')
+    wedges, texts, autotexts = ax.pie(sizes, colors=colors, startangle=90, autopct='%1.0f%%', textprops={'color':'gray'})
 
     # Change the font size
     plt.setp(autotexts, size=6.5)

@@ -48,11 +48,11 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
             if i >= 5:
                 break
             name_parts = test['name'].split('\n')
-            message += f"\t<b>{name_parts[0]}</b>\n"  # Add the first part as text
-            if len(name_parts) > 1 and is_url(name_parts[1]):
-                message += f'\t<a href="{name_parts[1]}">{name_parts[1]}</a>\n'  # Add the second part as a link if it's a URL
             if test['response_code']:
-                message += f"\t<code>{test['response_code']}</code>\n"
+                message += f"\t\t<code>{test['response_code']}</code>\n"
+            message += f"\t\t<b>{name_parts[0]}</b>\n"  # Add the first part as text
+            if len(name_parts) > 1 and is_url(name_parts[1]):
+                message += f'\t\t<a href="{name_parts[1]}">{name_parts[1]}</a>\n'  # Add the second part as a link if it's a URL
         if len(tests) > 0:
             message += "\n"  # Add an extra newline if there are tests with this status
     return message
