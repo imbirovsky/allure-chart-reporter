@@ -72,6 +72,31 @@ class GetInfoByCountry {
     }
 
     @Test
+    fun `This test will be skipped 2`() {
+        throw SkipException("Skipping this test 2")
+    }
+
+    @Test
+    fun `This test will be skipped 3`() {
+        throw SkipException("Skipping this test 3")
+    }
+
+    @Test
+    fun `This test will be skipped 4`() {
+        throw SkipException("Skipping this test 4")
+    }
+
+    @Test
+    fun `This test will be skipped 5`() {
+        throw SkipException("Skipping this test 5")
+    }
+
+    @Test
+    fun `This test will be skipped 6`() {
+        throw SkipException("Skipping this test 6")
+    }
+
+    @Test
     fun `This test will be success`() {
     }
 

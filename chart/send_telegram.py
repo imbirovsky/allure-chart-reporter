@@ -73,7 +73,8 @@ def format_test_message(status, count, tests):
 def create_keyboard(report_link):
     keyboard = [
         [InlineKeyboardButton("🔗 Link to report", url=report_link)],
-        # [InlineKeyboardButton("🔄 Restart the tests", callback_data='confirm_restart')],
+        [InlineKeyboardButton("🔄 Restart the tests", callback_data='confirm_restart')],
+        InlineKeyboardButton("🇺🇦 Stop Russian Aggression", url='https://war.ukraine.ua/')
     ]
     return InlineKeyboardMarkup(keyboard)
 
@@ -81,7 +82,7 @@ def create_keyboard(report_link):
 def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link,
                            allure_report_path):
     url = f"https://api.telegram.org/bot{token}/sendPhoto"
-    message = f"<b><u>Tests completed</u></b>\n\n"
+    message = f"\n\n•••\n\n"
     message += f"<b>• Total ({total})</b>\n\n"
     if int(passed) > 0:
         message += f"<b>• Passed ({passed})</b>\n\n"
