@@ -39,54 +39,33 @@ def get_broken_tests(allure_report_path):
 def get_skipped_tests(allure_report_path):
     return get_tests_by_status(allure_report_path, ['skipped'])
 
+def format_test_message(status, count, get_tests_func, allure_report_path):
+    message = ""
+    if int(count) > 0:
+        message += f"<code>• {status.capitalize()}: {count}</code>\n"
+        tests = get_tests_func(allure_report_path)
+        for i, test in enumerate(tests):
+            if i >= 5:
+                break
+            name_parts = test['name'].split('\n')
+            message += f"\n<b>{name_parts[0]}</b>\n"  # Add the first part as text
+            if len(name_parts) > 1 and is_url(name_parts[1]):
+                message += f'<a href="{name_parts[1]}">{name_parts[1]}</a>\n'  # Add the second part as a link if it's a URL
+            if test['response_code']:
+                message += f"<code>{test['response_code']}</code>\n"
+        if len(tests) > 5:
+            message += f"And {len(tests) - 5} more {status} tests...\n\n"
+    return message
+
 def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link, allure_report_path):
     url = f"https://api.telegram.org/bot{token}/sendPhoto"
     message = "Tests completed\n\n"
     message += f"<code>• Total: {total}</code>\n"
     if int(passed) > 0:
         message += f"<code>• Passed: {passed}</code>\n"
-    if int(failed) > 0:
-        message += f"<code>• Failed: {failed}</code>\n"
-        failed_tests = get_failed_tests(allure_report_path)
-        for i, test in enumerate(failed_tests):
-            if i >= 5:
-                break
-            name_parts = test['name'].split('\n')
-            message += f"<b>{name_parts[0]}</b>\n"  # Add the first part as text
-            if len(name_parts) > 1 and is_url(name_parts[1]):
-                message += f'<a href="{name_parts[1]}">{name_parts[1]}</a>\n'  # Add the second part as a link if it's a URL
-            if test['response_code']:
-                message += f"<code>{test['response_code']}</code>\n"
-        if len(failed_tests) > 5:
-            message += f"And {len(failed_tests) - 5} more failed tests...\n\n"
-    if int(broken) > 0:
-        message += f"<code>• Broken: {broken}</code>\n"
-        broken_tests = get_broken_tests(allure_report_path)
-        for i, test in enumerate(broken_tests):
-            if i >= 5:
-                break
-            name_parts = test['name'].split('\n')
-            message += f"<b>{name_parts[0]}</b>\n"  # Add the first part as text
-            if len(name_parts) > 1 and is_url(name_parts[1]):
-                message += f'<a href="{name_parts[1]}">{name_parts[1]}</a>\n'  # Add the second part as a link if it's a URL
-            if test['response_code']:
-                message += f"<code>{test['response_code']}</code>\n"
-        if len(broken_tests) > 7:
-            message += f"And {len(broken_tests) - 5} more broken tests...\n\n"
-    if int(skipped) > 0:
-        message += f"<code>• Skipped: {skipped}</code>\n"
-        skipped_tests = get_skipped_tests(allure_report_path)
-        for i, test in enumerate(skipped_tests):
-            if i >= 5:
-                break
-            name_parts = test['name'].split('\n')
-            message += f"<b>{name_parts[0]}</b>\n"  # Add the first part as text
-            if len(name_parts) > 1 and is_url(name_parts[1]):
-                message += f'<a href="{name_parts[1]}">{name_parts[1]}</a>\n'  # Add the second part as a link if it's a URL
-            if test['response_code']:
-                message += f"<code>{test['response_code']}</code>\n"
-        if len(skipped_tests) > 5:
-            message += f"And {len(skipped_tests) - 5} more skipped tests...\n\n"
+    message += format_test_message('failed', failed, get_failed_tests, allure_report_path)
+    message += format_test_message('broken', broken, get_broken_tests, allure_report_path)
+    message += format_test_message('skipped', skipped, get_skipped_tests, allure_report_path)
     print(f"Sending message: {message}")  # Log the message before sending
     with open(photo_path, 'rb') as photo:
         files = {'photo': photo}
