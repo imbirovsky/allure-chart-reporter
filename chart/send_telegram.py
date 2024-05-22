@@ -34,7 +34,7 @@ def get_tests_by_status(allure_report_path, statuses):
             }
             tests.append(test)
     # Сортировка тестов так, чтобы тесты с URL были в конце списка
-    tests.sort(key=lambda test: is_url(test['name'].split('\n')[1]) if len(test['name'].split('\n')) > 1 else False)
+    tests.sort(key=lambda test: is_url(test['name'].split('\n')[1]) if len(test['name'].split('')) > 1 else False)
     return tests
 
 
