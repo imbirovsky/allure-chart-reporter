@@ -7,11 +7,11 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 max_tests_for_telegram_report = 7
 max_symbols_for_message = 4060
+url_regex = re.compile(
+    r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
+)
 
 def is_url(string):
-    url_regex = re.compile(
-        r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
-    )
     return re.match(url_regex, string) is not None
 
 def get_tests_by_status(allure_report_path, statuses):
@@ -61,34 +61,42 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
             message += f"\t\t\t<code>And {len(tests) - max_tests_for_telegram_report} more {status} tests...</code>\n"
     return message
 
+def create_keyboard(report_link):
+    keyboard = [
+        [InlineKeyboardButton("🔗 Link to report", url=report_link)],
+        # [InlineKeyboardButton("🔄 Restart the tests", callback_data='confirm_restart')],
+    ]
+    return InlineKeyboardMarkup(keyboard)
+
 def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link, allure_report_path):
     url = f"https://api.telegram.org/bot{token}/sendPhoto"
     message = f"<b><u>Tests completed</u></b>\n\n"
     message += f"<b>• Total ({total})</b>\n\n"
     if int(passed) > 0:
         message += f"<b>• Passed ({passed})</b>\n"
+
+    failed_tests = get_failed_tests(allure_report_path)
+    broken_tests = get_broken_tests(allure_report_path)
+    skipped_tests = get_skipped_tests(allure_report_path)
+
     message += "\n"
-    message += format_test_message('failed', failed, get_failed_tests, allure_report_path)
+    message += format_test_message('failed', failed, failed_tests)
     message += "\n"
-    message += format_test_message('broken', broken, get_broken_tests, allure_report_path)
+    message += format_test_message('broken', broken, broken_tests)
     message += "\n"
-    message += format_test_message('skipped', skipped, get_skipped_tests, allure_report_path)
+    message += format_test_message('skipped', skipped, skipped_tests)
 
     # Check if the message exceeds the limit
     if len(message) > max_symbols_for_message:
         message = message[:max_symbols_for_message] + "\n\nThe message is too large, check out the full Allure report."
-    footer = "                                  •••          "
+    footer = "•••"
     centered_footer = footer.center(50)
-    message += centered_footer
+    message += "\n" + centered_footer
 
     print(f"Sending message: {message}")  # Log the message before sending
     with open(photo_path, 'rb') as photo:
         files = {'photo': photo}
-        keyboard = [
-            [InlineKeyboardButton("🔗 Link to report", url=report_link)],
-            # [InlineKeyboardButton("🔄 Restart the tests", callback_data='confirm_restart')],
-        ]
-        reply_markup = InlineKeyboardMarkup(keyboard)
+        reply_markup = create_keyboard(report_link)
         data = {
             'chat_id': chat_id,
             'caption': message,
