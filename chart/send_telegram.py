@@ -6,7 +6,7 @@ import glob
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 MAX_TESTS_FOR_TELEGRAM_REPORT = 7
-MAX_SYMBOLS_FOR_MESSAGE = 4060
+MAX_SYMBOLS_FOR_MESSAGE = 4000
 URL_REGEX = re.compile(
     r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
 )
@@ -103,8 +103,10 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
         message += skipped_message + "\n\n"
 
     exceeding_message = "\n\nThe message is too large, check out the full Allure report."
-    if len(message) + len(exceeding_message) > MAX_SYMBOLS_FOR_MESSAGE:
-        message = message[:MAX_SYMBOLS_FOR_MESSAGE - len(exceeding_message)] + exceeding_message
+    message += exceeding_message
+
+    if len(message) > MAX_SYMBOLS_FOR_MESSAGE:
+        message = message[:MAX_SYMBOLS_FOR_MESSAGE]
 
     message = message.rstrip()
     message += "\n\n•••\n\n"
