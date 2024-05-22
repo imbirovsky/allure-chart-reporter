@@ -32,80 +32,80 @@ class GetInfoByCountry {
             .statusCode(200)
     }
 
-//    @Test
+    @Test
     fun `Get info about country (failed)`() {
         sendGetRequest(requestData+"ukraine")
             .body(matchesJsonSchemaInClasspath("json_schemes/restcountries_name.json"))
             .statusCode(400)
     }
 
-//    @Test
+    @Test
     fun `Get info about country 2 (failed)`() {
         sendGetRequest(requestData+"usa")
             .body(matchesJsonSchemaInClasspath("json_schemes/restcountries_name.json"))
             .statusCode(303)
     }
 
-//    @Test
-//    fun `This test will be broken`() {
-//        throw RuntimeException("This is a broken test")
-//    }
-//
-//    @Test
-//    fun `This test will be broken 2`() {
-//        throw RuntimeException("This is a broken test 2")
-//    }
-//
-//    @Test
-//    fun `This test will be broken 3`() {
-//        throw RuntimeException("This is a broken test 3")
-//    }
-//
-//    @Test
-//    fun `This test will be broken 4`() {
-//        throw RuntimeException("This is a broken test 4")
-//    }
+    @Test
+    fun `This test will be broken`() {
+        throw RuntimeException("This is a broken test")
+    }
 
-//    @Test
-//    fun `This test will be skipped`() {
-//        throw SkipException("Skipping this test")
-//    }
+    @Test
+    fun `This test will be broken 2`() {
+        throw RuntimeException("This is a broken test 2")
+    }
+
+    @Test
+    fun `This test will be broken 3`() {
+        throw RuntimeException("This is a broken test 3")
+    }
+
+    @Test
+    fun `This test will be broken 4`() {
+        throw RuntimeException("This is a broken test 4")
+    }
+
+    @Test
+    fun `This test will be skipped`() {
+        throw SkipException("Skipping this test")
+    }
 
     @Test
     fun `This test will be success`() {
     }
 
-//    @Test
-//    fun `This test will be success 2`() {
-//    }
-//
-//    @Test
-//    fun `This test will be success 3`() {
-//    }
-//
-//    @Test
-//    fun `This test will be success 4`() {
-//    }
-//
-//    @Test
-//    fun `This test will be success 5`() {
-//    }
-//
-//    @Test
-//    fun `This test will be success 6`() {
-//    }
-//
-//    @Test
-//    fun `This test will be success 7`() {
-//    }
-//
-//    @Test
-//    fun `This test will be success 8`() {
-//    }
-//
-//    @Test
-//    fun `This test will be success 9`() {
-//    }
+    @Test
+    fun `This test will be success 2`() {
+    }
+
+    @Test
+    fun `This test will be success 3`() {
+    }
+
+    @Test
+    fun `This test will be success 4`() {
+    }
+
+    @Test
+    fun `This test will be success 5`() {
+    }
+
+    @Test
+    fun `This test will be success 6`() {
+    }
+
+    @Test
+    fun `This test will be success 7`() {
+    }
+
+    @Test
+    fun `This test will be success 8`() {
+    }
+
+    @Test
+    fun `This test will be success 9`() {
+    }
 
     @Test
     fun `This test will fail`() {

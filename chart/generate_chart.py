@@ -28,7 +28,7 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     plt.setp(autotexts, size=5, weight="bold")
 
     # Set the title
-    plt.title(logo_name, fontproperties=custom_font)
+    plt.title(logo_name, fontproperties=custom_font, fontsize=11, color='black')
 
     # Set the title position
     plt.show()
@@ -39,7 +39,7 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     # Create legend
     legend_elements = [mlines.Line2D([0], [0], color=d["color"], marker='.', linestyle='None', markeredgecolor=d["color"], markersize=8, markeredgewidth=1.2) for d in data if d["value"] > 0]
     labels = [d["label"] + f": {d['value']}" for d in data if d["value"] > 0]
-    legend = ax.legend(legend_elements, labels, title=logo_name, loc="center left", bbox_to_anchor=(1, 0, 0.5, 1), handlelength=1, handletextpad=0.4)
+    legend = ax.legend(legend_elements, labels, loc="center left", bbox_to_anchor=(1, 0, 0.5, 1), handlelength=1, handletextpad=0.4)
 
     # Apply custom font to legend text
     for text in legend.get_texts():
