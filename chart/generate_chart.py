@@ -3,7 +3,6 @@ import matplotlib.font_manager as fm
 import matplotlib.patches as patches
 import matplotlib.lines as mlines
 from PIL import Image, ImageOps
-import numpy as np
 import sys
 
 custom_font = fm.FontProperties(fname='chart/font.ttf')
@@ -74,7 +73,7 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     plt.text(0, -0.10, f'{int(minutes)}min {int(seconds)}sec', horizontalalignment='center', verticalalignment='center', fontsize=6.5, color='grey', fontproperties=custom_font)
 
     # Add the text "logo_name" to the up of the legend
-    plt.text(1.82, 0.6, logo_name, horizontalalignment='center', verticalalignment='center', fontsize=11, color='black', fontproperties=custom_font)
+    # plt.text(1.82, 0.6, logo_name, horizontalalignment='center', verticalalignment='center', fontsize=11, color='black', fontproperties=custom_font)
 
     # Save the plot
     plt.savefig('chart.png', dpi=300, bbox_inches='tight', pad_inches=0.1)
@@ -93,7 +92,7 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     logo_image = Image.open('chart/logo.png')
 
     # Resize the logo image if necessary
-    logo_image = logo_image.resize((120, 120))  # Adjust the size as needed
+    logo_image = logo_image.resize((180, 180))  # Adjust the size as needed
 
     # Add the logo image to the up of the legend
     img_with_padding.paste(logo_image, (img_with_padding.width - logo_image.width - 90, int(img_with_padding.height / 2 - logo_image.height / 2 - 280)))
