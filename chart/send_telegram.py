@@ -55,14 +55,13 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
                 message += f" - <code>{test['response_code']}</code>"
             message += "\n"
         if len(tests) > 7:
-            message += f"\t\t<code>And {len(tests) - 7} more {status} tests...</code>\n"
+            message += f"\t\t\t<code>And {len(tests) - 7} more {status} tests...</code>\n"
     return message
 
 def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link, allure_report_path):
     url = f"https://api.telegram.org/bot{token}/sendPhoto"
-    message = f"\n\n<b>Tests completed</b>\n\n"
-    centered_message = message.center(50)
-    centered_message += f"<b>• Total ({total})</b>\n\n"
+    message = f"<b><u>Tests completed</u></b>\n\n"
+    message += f"<b>• Total ({total})</b>\n\n"
     if int(passed) > 0:
         message += f"<b>• Passed ({passed})</b>\n"
     message += "\n"

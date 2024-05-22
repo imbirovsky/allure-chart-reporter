@@ -6,7 +6,9 @@ on:
   repository_dispatch:
   push:
 env:
-  TEST_REPORT_URL: https://imbirovsky.github.io/allure-chart-reporter/
+  GITHUB_USER: imbirovsky
+  PROJECT_NAME: allure-chart-reporter
+  TEST_REPORT_URL: https://${{ env.GITHUB_USER }}.github.io/${{ env.PROJECT_NAME }}/
   ALLURE_RESULT_DIR: target/allure-results
 jobs:
   test:
