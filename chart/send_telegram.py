@@ -60,12 +60,18 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
 def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link, allure_report_path):
     url = f"https://api.telegram.org/bot{token}/sendPhoto"
     message = "Tests completed\n\n"
-    message += f"<code>• Total: {total}</code>\n"
+    message += f"<code>• Total: {total}\n"
     if int(passed) > 0:
-        message += f"<code>• Passed: {passed}</code>\n"
+        message += f"• Passed: {passed}\n"
     message += format_test_message('failed', failed, get_failed_tests, allure_report_path)
     message += format_test_message('broken', broken, get_broken_tests, allure_report_path)
     message += format_test_message('skipped', skipped, get_skipped_tests, allure_report_path)
+    message += "</code>"
+
+    # Check if the message exceeds the limit
+    if len(message) > 4090:
+        message = message[:4090] + "\n\nMessage is cut off as it exceeds the limit of 4096 characters."
+
     print(f"Sending message: {message}")  # Log the message before sending
     with open(photo_path, 'rb') as photo:
         files = {'photo': photo}
