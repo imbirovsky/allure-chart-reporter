@@ -32,14 +32,14 @@ class GetInfoByCountry {
             .statusCode(200)
     }
 
-//    @Test
+    @Test
     fun `Get info about country (failed)`() {
         sendGetRequest(requestData+"ukraine")
             .body(matchesJsonSchemaInClasspath("json_schemes/restcountries_name.json"))
             .statusCode(400)
     }
 
-//    @Test
+    @Test
     fun `Get info about country 2 (failed)`() {
         sendGetRequest(requestData+"usa")
             .body(matchesJsonSchemaInClasspath("json_schemes/restcountries_name.json"))
