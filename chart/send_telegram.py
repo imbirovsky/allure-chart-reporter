@@ -11,8 +11,10 @@ url_regex = re.compile(
     r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
 )
 
+
 def is_url(string):
     return re.match(url_regex, string) is not None
+
 
 def get_tests_by_status(allure_report_path, statuses):
     tests = []
@@ -33,14 +35,18 @@ def get_tests_by_status(allure_report_path, statuses):
             tests.append(test)
     return tests
 
+
 def get_failed_tests(allure_report_path):
     return get_tests_by_status(allure_report_path, ['failed'])
+
 
 def get_broken_tests(allure_report_path):
     return get_tests_by_status(allure_report_path, ['broken'])
 
+
 def get_skipped_tests(allure_report_path):
     return get_tests_by_status(allure_report_path, ['skipped'])
+
 
 def format_test_message(status, count, tests):
     message = ""
@@ -60,6 +66,7 @@ def format_test_message(status, count, tests):
             message += f"\t\t\t<code>And {len(tests) - max_tests_for_telegram_report} more {status} tests...</code>\n"
     return message
 
+
 def create_keyboard(report_link):
     keyboard = [
         [InlineKeyboardButton("🔗 Link to report", url=report_link)],
@@ -67,7 +74,9 @@ def create_keyboard(report_link):
     ]
     return InlineKeyboardMarkup(keyboard)
 
-def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link, allure_report_path):
+
+def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link,
+                           allure_report_path):
     url = f"https://api.telegram.org/bot{token}/sendPhoto"
     message = f"<b><u>Tests completed</u></b>\n\n"
     message += f"<b>• Total ({total})</b>\n\n"
@@ -88,7 +97,7 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     if len(message) > max_symbols_for_message:
         message = message[:max_symbols_for_message] + "\n\nThe message is too large, check out the full Allure report."
 
-    message += "|____________\n"
+    message += "\n•••\n"
 
     print(f"Sending message: {message}")  # Log the message before sending
     with open(photo_path, 'rb') as photo:
@@ -104,6 +113,7 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
         print(response.json())
         return response.json()
 
+
 if __name__ == "__main__":
     token = sys.argv[1]
     chat_id = sys.argv[2]
@@ -115,4 +125,5 @@ if __name__ == "__main__":
     skipped = sys.argv[8]
     report_link = sys.argv[9]
     allure_report_path = sys.argv[10]
-    send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link, allure_report_path)
+    send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link,
+                           allure_report_path)
