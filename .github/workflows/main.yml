@@ -6,7 +6,7 @@ on:
   repository_dispatch:
   push:
 env:
-  TEST_REPORT_URL: ${{ secrets.ALLURE_LINK }}
+  TEST_REPORT_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
   ALLURE_RESULT_DIR: target/allure-results
 jobs:
   test:

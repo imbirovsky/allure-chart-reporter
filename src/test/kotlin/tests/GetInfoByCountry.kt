@@ -12,11 +12,9 @@ import constants.Constants.Countries.RUSSIA_IS_A_TERRORIST_STATE
 import constants.Constants.Countries.SPAIN
 import constants.Constants.Countries.UKRAINE
 import constants.Constants.Countries.USA
-import helpers.AllureHelper.updateTestNameForAllureReport
 import helpers.RequestHelper.sendGetRequest
 import io.qameta.allure.Description
 import io.qameta.allure.Epic
-import io.qameta.allure.Step
 import io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath
 import org.testng.SkipException
 import org.testng.annotations.DataProvider
@@ -29,8 +27,7 @@ class GetInfoByCountry {
 
     @Test(dataProvider = "countries")
     @Description("Get information about country")
-    fun `Get information about country `(countries: String) {
-        updateTestNameForAllureReport(countries)
+    fun `Get information about country`(countries: String) {
         sendGetRequest(requestData+countries)
             .body(matchesJsonSchemaInClasspath("json_schemes/restcountries_name.json"))
             .statusCode(200)
@@ -38,17 +35,12 @@ class GetInfoByCountry {
 
     @Test
     fun `This test will be broken`() {
-        brokenStep()
+        throw RuntimeException("This is a broken step")
     }
 
     @Test
     fun `This test will be skipped`() {
         throw SkipException("Skipping this test")
-    }
-
-    @Step("This step is broken")
-    fun brokenStep() {
-        throw RuntimeException("This is a broken step")
     }
 
     @DataProvider(name = "countries")
