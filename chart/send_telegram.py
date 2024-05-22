@@ -72,7 +72,7 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     message = f"<b><u>Tests completed</u></b>\n\n"
     message += f"<b>• Total ({total})</b>\n\n"
     if int(passed) > 0:
-        message += f"<b>• Passed ({passed})</b>\n"
+        message += f"<b>• Passed ({passed})</b>\n\n"
 
     failed_tests = get_failed_tests(allure_report_path)
     broken_tests = get_broken_tests(allure_report_path)
@@ -87,7 +87,7 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     # Check if the message exceeds the limit
     if len(message) > max_symbols_for_message:
         message = message[:max_symbols_for_message] + "\n\nThe message is too large, check out the full Allure report."
-    footer = "•••"
+    footer = "__________________________________________"
     centered_footer = footer.center(50)
     message += "\n" + centered_footer
 
