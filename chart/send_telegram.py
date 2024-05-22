@@ -42,10 +42,10 @@ def get_skipped_tests(allure_report_path):
 def format_test_message(status, count, get_tests_func, allure_report_path):
     message = ""
     if int(count) > 0:
-        message += f"<b>• {status.capitalize()} ( {count}):</b>\n"
+        message += f"<b>• {status.capitalize()} ({count}):</b>\n"
         tests = get_tests_func(allure_report_path)
         for i, test in enumerate(tests):
-            if i >= 5:
+            if i >= 7:
                 break
             name_parts = test['name'].split('\n')
             message += f"\t • <code>{name_parts[0]}</code>"
@@ -54,16 +54,16 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
             if test['response_code']:
                 message += f" - <code>{test['response_code']}</code>"
             message += "\n"
-        if len(tests) > 5:
-            message += f"\t\t<code>And {len(tests) - 5} more {status} tests...</code>\n"
+        if len(tests) > 7:
+            message += f"\t\t<code>And {len(tests) - 7} more {status} tests...</code>\n"
     return message
 
 def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link, allure_report_path):
     url = f"https://api.telegram.org/bot{token}/sendPhoto"
     message = f"<b>Tests completed</b>\n\n"
-    message += f"<b>• Total: {total}</b>\n\n"
+    message += f"<b>• Total ({total})</b>\n\n"
     if int(passed) > 0:
-        message += f"<b>• Passed: {passed}</b>\n"
+        message += f"<b>• Passed ({passed})</b>\n"
     message += "\n"
     message += format_test_message('failed', failed, get_failed_tests, allure_report_path)
     message += "\n"
@@ -75,11 +75,11 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     if len(message) > 4050:
         message = message[:4050] + "\n\nMessage is cut off as it exceeds the limit of 4096 characters."
 
-    footer = "••••••••••••••••••••••••"  # Your footer
-    centered_footer = footer.center(50)  # Center the footer within a string of length 50
-    message += "\n"  # Add a newline before the footer
-    message += centered_footer  # Add the centered footer
-    message += "\n"  # Add a newline after the footer
+    footer = "••••••••••••••••••••••••"
+    centered_footer = footer.center(50)
+    message += "\n"
+    message += centered_footer
+    message += "\n"
 
     print(f"Sending message: {message}")  # Log the message before sending
     with open(photo_path, 'rb') as photo:
