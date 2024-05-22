@@ -48,11 +48,11 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
             if i >= 5:
                 break
             name_parts = test['name'].split('\n')
-            message += f"\n<b>{name_parts[0]}</b>\n"  # Add the first part as text
+            message += f"\t<b>{name_parts[0]}</b>\n"  # Add the first part as text
             if len(name_parts) > 1 and is_url(name_parts[1]):
-                message += f'<a href="{name_parts[1]}">{name_parts[1]}</a>\n'  # Add the second part as a link if it's a URL
+                message += f'\t<a href="{name_parts[1]}">{name_parts[1]}</a>\n'  # Add the second part as a link if it's a URL
             if test['response_code']:
-                message += f"<code>{test['response_code']}</code>\n"
+                message += f"\t<code>{test['response_code']}</code>\n"
         if len(tests) > 5:
             message += f"And {len(tests) - 5} more {status} tests...\n\n"
     return message
