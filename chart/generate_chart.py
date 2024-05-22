@@ -9,10 +9,6 @@ import sys
 custom_font = fm.FontProperties(fname='chart/font.ttf')
 logo_name = 'qaband.com'
 
-logo = Image.open('chart/logo.png')
-logo = logo.resize((60, 60))  # Измените размер изображения
-logo = np.array(logo)  # Преобразуйте изображение в массив numpy
-
 def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     data = [
         {"label": "Passed", "value": passed, "color": (0/255, 128/255, 0/255, 0.5)},
@@ -45,14 +41,6 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     legend_elements = [mlines.Line2D([0], [0], color=d["color"], marker='.', linestyle='None', markeredgecolor=d["color"], markersize=8, markeredgewidth=1.2) for d in data if d["value"] > 0]
     labels = [d["label"] + f": {d['value']}" for d in data if d["value"] > 0]
     legend = ax.legend(legend_elements, labels, loc="center left", bbox_to_anchor=(1, 0, 0.5, 1), handlelength=1, handletextpad=0.4)
-    legend_box = legend.get_window_extent().transformed(fig.dpi_scale_trans.inverted())  # Получите координаты легенды в долях от размера фигуры
-
-    # Вычислите координаты для размещения логотипа над легендой и по центру
-    logo_x = legend_box.x0 + (legend_box.width - 60 / fig.dpi) / 2  # Центрируйте по горизонтали
-    logo_y = legend_box.y1  # Разместите над легендой
-
-    # Добавьте логотип на график
-    fig.figimage(logo, xo=logo_x * fig.dpi, yo=logo_y * fig.dpi, origin='upper')
 
     # Apply custom font to legend text
     for text in legend.get_texts():
@@ -86,7 +74,7 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     plt.text(0, -0.10, f'{int(minutes)}min {int(seconds)}sec', horizontalalignment='center', verticalalignment='center', fontsize=6.5, color='grey', fontproperties=custom_font)
 
     # Add the text "logo_name" to the up of the legend
-    # plt.text(1.82, 0.6, logo_name, horizontalalignment='center', verticalalignment='center', fontsize=11, color='black', fontproperties=custom_font)
+    plt.text(1.82, 0.6, logo_name, horizontalalignment='center', verticalalignment='center', fontsize=11, color='black', fontproperties=custom_font)
 
     # Save the plot
     plt.savefig('chart.png', dpi=300, bbox_inches='tight', pad_inches=0.1)
@@ -100,6 +88,15 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     # Add padding
     padding = (20, 20, 20, 20)  # Change these values to adjust the padding size
     img_with_padding = ImageOps.expand(img, border=padding, fill='white')
+
+    # Load the logo image
+    logo_image = Image.open('chart/logo.png')
+
+    # Resize the logo image if necessary
+    logo_image = logo_image.resize((120, 120))  # Adjust the size as needed
+
+    # Add the logo image to the up of the legend
+    img_with_padding.paste(logo_image, (img_with_padding.width - logo_image.width - 90, int(img_with_padding.height / 2 - logo_image.height / 2 - 280)))
 
     # Save the result back to the same file
     img_with_padding.save('chart.png')
