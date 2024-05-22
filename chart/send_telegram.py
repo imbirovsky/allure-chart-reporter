@@ -97,6 +97,7 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     if len(message) > max_symbols_for_message:
         message = message[:max_symbols_for_message] + "\n\nThe message is too large, check out the full Allure report."
 
+    message = message.rstrip()
     message += "\n•••\n"
 
     print(f"Sending message: {message}")  # Log the message before sending
