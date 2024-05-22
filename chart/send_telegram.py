@@ -5,15 +5,15 @@ import sys
 import glob
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
-max_tests_for_telegram_report = 7
-max_symbols_for_message = 4060
-url_regex = re.compile(
+MAX_TESTS_FOR_TELEGRAM_REPORT = 7
+MAX_SYMBOLS_FOR_MESSAGE = 4060
+URL_REGEX = re.compile(
     r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
 )
 
 
 def is_url(string):
-    return re.match(url_regex, string) is not None
+    return re.match(URL_REGEX, string) is not None
 
 
 def get_tests_by_status(allure_report_path, statuses):
@@ -55,7 +55,7 @@ def format_test_message(status, count, tests):
     if int(count) > 0:
         message += f"<b>• {status.capitalize()} ({count}):</b>\n"
         for i, test in enumerate(tests):
-            if i >= max_tests_for_telegram_report:
+            if i >= MAX_TESTS_FOR_TELEGRAM_REPORT:
                 break
             name_parts = test['name'].split('\n')
             message += f"\t • <code>{name_parts[0]}</code>"
@@ -65,8 +65,8 @@ def format_test_message(status, count, tests):
                 message += f" - <code>{test['response_code']}</code>"
             if i < len(tests) - 1:
                 message += "\n"
-        if len(tests) > max_tests_for_telegram_report:
-            message += f"\t\t\t<code>And {len(tests) - max_tests_for_telegram_report} more {status} tests...</code>\n"
+        if len(tests) > MAX_TESTS_FOR_TELEGRAM_REPORT:
+            message += f"\t\t\t<code>And {len(tests) - MAX_TESTS_FOR_TELEGRAM_REPORT} more {status} tests...</code>\n"
     return message
 
 
@@ -103,8 +103,8 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
         message += skipped_message + "\n\n"
 
     # Check if the message exceeds the limit
-    if len(message) > max_symbols_for_message:
-        message = message[:max_symbols_for_message] + "\n\nThe message is too large, check out the full Allure report."
+    if len(message) > MAX_SYMBOLS_FOR_MESSAGE:
+        message = message[:MAX_SYMBOLS_FOR_MESSAGE] + "\n\nThe message is too large, check out the full Allure report."
 
     message = message.rstrip()
     message += "\n\n•••\n\n"

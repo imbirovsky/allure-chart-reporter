@@ -3,11 +3,19 @@ import matplotlib.font_manager as fm
 import matplotlib.patches as patches
 import matplotlib.lines as mlines
 from PIL import Image, ImageOps
-import numpy as np
 import sys
 
-custom_font = fm.FontProperties(fname='chart/font.ttf')
-logo_name = 'qaband.com'
+FONT_PATH = 'chart/font.ttf'
+LOGO_NAME = 'qaband.com'
+CUSTOM_FONT = fm.FontProperties(fname=FONT_PATH)
+
+def create_legend_elements(data):
+    return [mlines.Line2D([0], [0], color=d["color"], marker='.', linestyle='None', markeredgecolor=d["color"], markersize=8, markeredgewidth=1.2) for d in data if d["value"] > 0]
+
+def apply_custom_font_to_legend(legend):
+    for text in legend.get_texts():
+        text.set_fontproperties(CUSTOM_FONT)
+        text.set_fontsize(9)
 
 def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     data = [
@@ -29,28 +37,21 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     plt.setp(autotexts, size=5, weight="bold")
 
     # Set the title
-    plt.title("Test Results", fontproperties=custom_font, fontsize=11, color='black')
-
-    # Set the title position
-    plt.show()
+    plt.title("Test Results", fontproperties=CUSTOM_FONT, fontsize=12, color='black')
 
     # Move the plot to the left
     fig.subplots_adjust(left=0.1, right=0.76)
 
     # Create legend
-    legend_elements = [mlines.Line2D([0], [0], color=d["color"], marker='.', linestyle='None', markeredgecolor=d["color"], markersize=8, markeredgewidth=1.2) for d in data if d["value"] > 0]
-    labels = [d["label"] + f": {d['value']}" for d in data if d["value"] > 0]
+    legend_elements = create_legend_elements(data)
     legend = ax.legend(legend_elements, labels, loc="center left", bbox_to_anchor=(1, 0, 0.5, 1), handlelength=1, handletextpad=0.4)
 
     # Apply custom font to legend text
-    for text in legend.get_texts():
-        text.set_fontproperties(custom_font)
-        text.set_fontsize(9)
+    apply_custom_font_to_legend(legend)
 
     # Draw a white circle at the center
     centre_circle = plt.Circle((0,0),0.70,fc='white')
-    fig = plt.gcf()
-    fig.gca().add_artist(centre_circle)
+    ax.add_artist(centre_circle)
 
     # Set the edge color of the legend frame
     legend.get_frame().set_edgecolor((169/255, 169/255, 169/255, 0.5))
@@ -67,14 +68,14 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     ax.axis('equal')
 
     # Add text in center
-    plt.text(0, 0.02, f'Total: {total}', horizontalalignment='center', verticalalignment='center', fontsize=11, color='black', fontproperties=custom_font)
+    plt.text(0, 0.02, f'Total: {total}', horizontalalignment='center', verticalalignment='center', fontsize=11, color='black', fontproperties=CUSTOM_FONT)
 
     # Add sum_duration text
     minutes, seconds = divmod(int(sum_duration) / 1000, 60)  # Convert from milliseconds to seconds
-    plt.text(0, -0.10, f'{int(minutes)}min {int(seconds)}sec', horizontalalignment='center', verticalalignment='center', fontsize=6.5, color='grey', fontproperties=custom_font)
+    plt.text(0, -0.10, f'{int(minutes)}min {int(seconds)}sec', horizontalalignment='center', verticalalignment='center', fontsize=6.5, color='grey', fontproperties=CUSTOM_FONT)
 
     # Add the text "logo_name" to the up of the legend
-    plt.text(1.82, 0.6, logo_name, horizontalalignment='center', verticalalignment='center', fontsize=11.5, color='black', fontproperties=custom_font)
+    plt.text(1.82, 0.6, LOGO_NAME, horizontalalignment='center', verticalalignment='center', fontsize=11.5, color='black', fontproperties=CUSTOM_FONT)
 
     # Save the plot
     plt.savefig('chart.png', dpi=300, bbox_inches='tight', pad_inches=0.1)
