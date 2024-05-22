@@ -42,7 +42,7 @@ def get_skipped_tests(allure_report_path):
 def format_test_message(status, count, get_tests_func, allure_report_path):
     message = ""
     if int(count) > 0:
-        message += f"<code>• {status.capitalize()}: {count}</code>\n"
+        message += f"\n<code>• {status.capitalize()}: {count}</code>\n"  # Add a newline at the start
         tests = get_tests_func(allure_report_path)
         for i, test in enumerate(tests):
             if i >= 5:
