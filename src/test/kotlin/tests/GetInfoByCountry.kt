@@ -65,7 +65,15 @@ class GetInfoByCountry {
     }
 
     @Test
-    fun `This test will be sucusess`() {
+    fun `This test will be success`() {
+    }
+
+    @Test
+    fun `This test will be success 2`() {
+    }
+
+    @Test
+    fun `This test will be success 3`() {
     }
 
     @Test
