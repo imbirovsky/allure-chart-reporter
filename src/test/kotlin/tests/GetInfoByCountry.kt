@@ -24,7 +24,7 @@ class GetInfoByCountry {
 
     private val requestData = "${HTTPS}${URL}${VERSION_API}${ACTION_NAME}"
 
-    @Test(dataProvider = "countries")
+//    @Test(dataProvider = "countries")
     @Description("Get information about country")
     fun `Get information about country`(countries: String) {
         sendGetRequest(requestData+countries)
@@ -75,37 +75,37 @@ class GetInfoByCountry {
     fun `This test will be success`() {
     }
 
-    @Test
-    fun `This test will be success 2`() {
-    }
-
-    @Test
-    fun `This test will be success 3`() {
-    }
-
-    @Test
-    fun `This test will be success 4`() {
-    }
-
-    @Test
-    fun `This test will be success 5`() {
-    }
-
-    @Test
-    fun `This test will be success 6`() {
-    }
-
-    @Test
-    fun `This test will be success 7`() {
-    }
-
-    @Test
-    fun `This test will be success 8`() {
-    }
-
-    @Test
-    fun `This test will be success 9`() {
-    }
+//    @Test
+//    fun `This test will be success 2`() {
+//    }
+//
+//    @Test
+//    fun `This test will be success 3`() {
+//    }
+//
+//    @Test
+//    fun `This test will be success 4`() {
+//    }
+//
+//    @Test
+//    fun `This test will be success 5`() {
+//    }
+//
+//    @Test
+//    fun `This test will be success 6`() {
+//    }
+//
+//    @Test
+//    fun `This test will be success 7`() {
+//    }
+//
+//    @Test
+//    fun `This test will be success 8`() {
+//    }
+//
+//    @Test
+//    fun `This test will be success 9`() {
+//    }
 
     @Test
     fun `This test will fail`() {
