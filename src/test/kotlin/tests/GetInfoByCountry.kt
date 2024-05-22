@@ -39,7 +39,7 @@ class GetInfoByCountry {
             .statusCode(400)
     }
 
-//    @Test
+    @Test
     fun `Get info about country 2 (failed)`() {
         sendGetRequest(requestData+"usa")
             .body(matchesJsonSchemaInClasspath("json_schemes/restcountries_name.json"))
@@ -51,12 +51,12 @@ class GetInfoByCountry {
         throw RuntimeException("This is a broken test")
     }
 
-//    @Test
+    @Test
     fun `This test will be broken 2`() {
         throw RuntimeException("This is a broken test 2")
     }
 
-//    @Test
+    @Test
     fun `This test will be broken 3`() {
         throw RuntimeException("This is a broken test 3")
     }
@@ -91,12 +91,12 @@ class GetInfoByCountry {
     fun `This test will be success 5`() {
     }
 
-//    @Test
+    @Test
     fun `This test will fail`() {
         throw AssertionError("This test always fails")
     }
 
-//    @Test
+    @Test
     fun `This test will fail 2`() {
         throw AssertionError("This test always fails 2")
     }

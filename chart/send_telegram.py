@@ -90,7 +90,7 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     if len(message) > 4050:
         message = message[:4050] + "\n\nMessage is cut off as it exceeds the limit of 4096 characters."
 
-    footer = "••••••••••••••••••••••••"
+    footer = "          •••••          "
     centered_footer = footer.center(50)
     message += "\n"
     message += centered_footer
