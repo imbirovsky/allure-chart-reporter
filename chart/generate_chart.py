@@ -5,8 +5,8 @@ import matplotlib.lines as mlines
 from PIL import Image, ImageOps
 import sys
 
-# Load custom font
 custom_font = fm.FontProperties(fname='chart/font.ttf')
+logo_name = 'qaband.com'
 
 def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     data = [
@@ -66,8 +66,8 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     minutes, seconds = divmod(int(sum_duration) / 1000, 60)  # Convert from milliseconds to seconds
     plt.text(0, -0.10, f'{int(minutes)}min {int(seconds)}sec', horizontalalignment='center', verticalalignment='center', fontsize=6.5, color='grey', fontproperties=custom_font)
 
-    # Add the text "qaband.com" to the up of the legend
-    plt.text(1.82, 0.6, 'qaband.com', horizontalalignment='center', verticalalignment='center', fontsize=11, color='black', fontproperties=custom_font)
+    # Add the text "logo_name" to the up of the legend
+    plt.text(1.82, 0.6, logo_name, horizontalalignment='center', verticalalignment='center', fontsize=11, color='black', fontproperties=custom_font)
 
     # Save the plot
     plt.savefig('chart.png', dpi=300, bbox_inches='tight', pad_inches=0.1)
