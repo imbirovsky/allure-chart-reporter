@@ -46,8 +46,43 @@ class GetInfoByCountry {
     }
 
     @Test
+    fun `This test will be broken 2`() {
+        throw RuntimeException("This is a broken test 2")
+    }
+
+    @Test
+    fun `This test will be broken 3`() {
+        throw RuntimeException("This is a broken test 3")
+    }
+
+    @Test
+    fun `This test will be broken 4`() {
+        throw RuntimeException("This is a broken test 4")
+    }
+
+    @Test
     fun `This test will be skipped`() {
         throw SkipException("Skipping this test")
+    }
+
+    @Test
+    fun `This test will be skipped 2`() {
+        throw SkipException("Skipping this test 2")
+    }
+
+    @Test
+    fun `This test will fail`() {
+        throw AssertionError("This test always fails")
+    }
+
+    @Test
+    fun `This test will fail 2`() {
+        throw AssertionError("This test always fails 2")
+    }
+
+    @Test
+    fun `This test will fail 3`() {
+        throw AssertionError("This test always fails 3")
     }
 
     @DataProvider(name = "countries")
