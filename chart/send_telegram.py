@@ -33,6 +33,8 @@ def get_tests_by_status(allure_report_path, statuses):
                 'response_code': response_code
             }
             tests.append(test)
+    # Сортировка тестов так, чтобы тесты с URL были в конце списка
+    tests.sort(key=lambda test: is_url(test['name'].split('\n')[1]) if len(test['name'].split('\n')) > 1 else False)
     return tests
 
 
@@ -98,7 +100,7 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
         message = message[:max_symbols_for_message] + "\n\nThe message is too large, check out the full Allure report."
 
     message = message.rstrip()
-    message += "\n\n•••\n"
+    message += "\n\n•••\n\n"
 
     print(f"Sending message: {message}")  # Log the message before sending
     with open(photo_path, 'rb') as photo:
