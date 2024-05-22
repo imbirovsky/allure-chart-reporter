@@ -42,7 +42,7 @@ def get_skipped_tests(allure_report_path):
 def format_test_message(status, count, get_tests_func, allure_report_path):
     message = ""
     if int(count) > 0:
-        message += f"<code>• {status.capitalize()}: {count}</code>\n"  # Add one newline at the end
+        message += f"<code>• {status.capitalize()}: {count}</code>\n"
         tests = get_tests_func(allure_report_path)
         for i, test in enumerate(tests):
             if i >= 5:
@@ -53,6 +53,8 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
                 message += f'\t\t<a href="{name_parts[1]}">{name_parts[1]}</a>\n'
             if test['response_code']:
                 message += f"\t\t<code>{test['response_code']}</code>\n"
+            if i < len(tests) - 1:  # Don't add a separator after the last test
+                message += "\t\t-----------------\n"  # Add a separator between tests
         if len(tests) > 0:
             message += "\n"
     return message
