@@ -42,7 +42,7 @@ def get_skipped_tests(allure_report_path):
 def format_test_message(status, count, get_tests_func, allure_report_path):
     message = ""
     if int(count) > 0:
-        message += f"\n<code>• {status.capitalize()}: {count}</code>\n"  # Add one newline at the end
+        message += f"<code>• {status.capitalize()}: {count}</code>\n"  # Add one newline at the end
         tests = get_tests_func(allure_report_path)
         for i, test in enumerate(tests):
             if i >= 5:
@@ -60,13 +60,12 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
 def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link, allure_report_path):
     url = f"https://api.telegram.org/bot{token}/sendPhoto"
     message = "Tests completed\n\n"
-    message += f"<code>• Total: {total}\n"
+    message += f"<code>• Total: {total}</code>\n"
     if int(passed) > 0:
-        message += f"• Passed: {passed}\n"
+        message += f"<code>• Passed: {passed}</code>\n"
     message += format_test_message('failed', failed, get_failed_tests, allure_report_path)
     message += format_test_message('broken', broken, get_broken_tests, allure_report_path)
     message += format_test_message('skipped', skipped, get_skipped_tests, allure_report_path)
-    message += "</code>"
 
     # Check if the message exceeds the limit
     if len(message) > 4090:
