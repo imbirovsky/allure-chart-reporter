@@ -102,9 +102,9 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     if skipped_message:
         message += skipped_message + "\n\n"
 
-    # Check if the message exceeds the limit
-    if len(message) > MAX_SYMBOLS_FOR_MESSAGE:
-        message = message[:MAX_SYMBOLS_FOR_MESSAGE] + "\n\nThe message is too large, check out the full Allure report."
+    exceeding_message = "\n\nThe message is too large, check out the full Allure report."
+    if len(message) + len(exceeding_message) > MAX_SYMBOLS_FOR_MESSAGE:
+        message = message[:MAX_SYMBOLS_FOR_MESSAGE - len(exceeding_message)] + exceeding_message
 
     message = message.rstrip()
     message += "\n\n•••\n\n"
