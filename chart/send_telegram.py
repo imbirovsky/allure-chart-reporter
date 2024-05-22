@@ -62,10 +62,11 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     url = f"https://api.telegram.org/bot{token}/sendPhoto"
     header = "••••••••••••••••••••••••"  # Your footer
     centered_header = header.center(50)  # Center the footer within a string of length 50
+    message = ""
     message += "\n"  # Add a newline before the footer
     message += centered_header  # Add the centered footer
     message += "\n"  # Add a newline after the footer
-    message = "<b>Tests completed<b>\n\n"
+    message = f"<b>Tests completed<b>\n\n"
     message += f"<b>• Total: {total}</b>\n\n"
     if int(passed) > 0:
         message += f"<b>• Passed: {passed}</b>\n"
