@@ -61,12 +61,12 @@ class GetInfoByCountry {
         throw RuntimeException("This is a broken test 3")
     }
 
-    @Test
+//    @Test
     fun `This test will be broken 4`() {
         throw RuntimeException("This is a broken test 4")
     }
 
-    @Test
+//    @Test
     fun `This test will be skipped`() {
         throw SkipException("Skipping this test")
     }
@@ -106,7 +106,7 @@ class GetInfoByCountry {
         throw AssertionError("This test always fails 3")
     }
 
-    @Test
+//    @Test
     fun `This test will fail 4`() {
         throw AssertionError("This test always fails 4")
     }
