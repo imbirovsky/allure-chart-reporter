@@ -34,7 +34,7 @@ def get_tests_by_status(allure_report_path, statuses):
             }
             tests.append(test)
     # Сортировка тестов так, чтобы тесты с URL были в конце списка
-    tests.sort(key=lambda test: is_url(test['name'].split('\n')[1]) if len(test['name'].split('')) > 1 else False)
+    tests.sort(key=lambda test: is_url(test['name'].split('\n')[1]) if len(test['name'].split('\n')) > 1 else False)
     return tests
 
 
@@ -63,7 +63,6 @@ def format_test_message(status, count, tests):
                 message += f'\n\t\t\t<a href="{name_parts[1]}">{name_parts[1]}</a>'
             if test['response_code']:
                 message += f" - <code>{test['response_code']}</code>"
-            message += "\n"
         if len(tests) > max_tests_for_telegram_report:
             message += f"\t\t\t<code>And {len(tests) - max_tests_for_telegram_report} more {status} tests...</code>\n"
     return message
