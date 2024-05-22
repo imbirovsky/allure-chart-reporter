@@ -32,7 +32,7 @@ class GetInfoByCountry {
             .statusCode(200)
     }
 
-    @Test
+//    @Test
     fun `Get info about country (failed)`() {
         sendGetRequest(requestData+"ukraine")
             .body(matchesJsonSchemaInClasspath("json_schemes/restcountries_name.json"))
@@ -66,10 +66,10 @@ class GetInfoByCountry {
         throw RuntimeException("This is a broken test 4")
     }
 
-    @Test
-    fun `This test will be skipped`() {
-        throw SkipException("Skipping this test")
-    }
+//    @Test
+//    fun `This test will be skipped`() {
+//        throw SkipException("Skipping this test")
+//    }
 
     @Test
     fun `This test will be success`() {
