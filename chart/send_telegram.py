@@ -5,6 +5,9 @@ import sys
 import glob
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
+max_tests_for_telegram_report = 7
+max_symbols_for_message = 4060
+
 def is_url(string):
     url_regex = re.compile(
         r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
@@ -45,7 +48,7 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
         message += f"<b>• {status.capitalize()} ({count}):</b>\n"
         tests = get_tests_func(allure_report_path)
         for i, test in enumerate(tests):
-            if i >= 7:
+            if i >= max_tests_for_telegram_report:
                 break
             name_parts = test['name'].split('\n')
             message += f"\t • <code>{name_parts[0]}</code>"
@@ -54,8 +57,8 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
             if test['response_code']:
                 message += f" - <code>{test['response_code']}</code>"
             message += "\n"
-        if len(tests) > 7:
-            message += f"\t\t\t<code>And {len(tests) - 7} more {status} tests...</code>\n"
+        if len(tests) > max_tests_for_telegram_report:
+            message += f"\t\t\t<code>And {len(tests) - max_tests_for_telegram_report} more {status} tests...</code>\n"
     return message
 
 def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link, allure_report_path):
@@ -72,9 +75,8 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     message += format_test_message('skipped', skipped, get_skipped_tests, allure_report_path)
 
     # Check if the message exceeds the limit
-    if len(message) > 4050:
-        message = message[:4050] + "\n\nMessage is cut off as it exceeds the limit of 4096 characters."
-
+    if len(message) > max_symbols_for_message:
+        message = message[:max_symbols_for_message] + "\n\nThe message is too large, check out the full Allure report."
     footer = "                                  •••          "
     centered_footer = footer.center(50)
     message += centered_footer
