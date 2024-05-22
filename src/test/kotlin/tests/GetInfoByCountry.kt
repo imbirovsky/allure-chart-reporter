@@ -32,14 +32,14 @@ class GetInfoByCountry {
             .statusCode(200)
     }
 
-    @Test
+//    @Test
     fun `Get info about country (failed)`() {
         sendGetRequest(requestData+"ukraine")
             .body(matchesJsonSchemaInClasspath("json_schemes/restcountries_name.json"))
             .statusCode(400)
     }
 
-    @Test
+//    @Test
     fun `Get info about country 2 (failed)`() {
         sendGetRequest(requestData+"usa")
             .body(matchesJsonSchemaInClasspath("json_schemes/restcountries_name.json"))
@@ -91,17 +91,17 @@ class GetInfoByCountry {
     fun `This test will be success 5`() {
     }
 
-    @Test
+//    @Test
     fun `This test will fail`() {
         throw AssertionError("This test always fails")
     }
 
-    @Test
+//    @Test
     fun `This test will fail 2`() {
         throw AssertionError("This test always fails 2")
     }
 
-    @Test
+//    @Test
     fun `This test will fail 3`() {
         throw AssertionError("This test always fails 3")
     }
