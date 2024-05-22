@@ -66,6 +66,9 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     minutes, seconds = divmod(int(sum_duration) / 1000, 60)  # Convert from milliseconds to seconds
     plt.text(0, -0.10, f'{int(minutes)}min {int(seconds)}sec', horizontalalignment='center', verticalalignment='center', fontsize=6.5, color='grey', fontproperties=custom_font)
 
+    # Add the text "qaband.com" to the up of the legend
+    plt.text(1.2, 0.6, 'qaband.com', horizontalalignment='center', verticalalignment='center', fontsize=11, color='black', fontproperties=custom_font)
+
     # Save the plot
     plt.savefig('chart.png', dpi=300, bbox_inches='tight', pad_inches=0.1)
 
@@ -78,9 +81,6 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     # Add padding
     padding = (20, 20, 20, 20)  # Change these values to adjust the padding size
     img_with_padding = ImageOps.expand(img, border=padding, fill='white')
-
-    # Add the text "qaband.com" to the up of the legend
-    plt.text(1.2, 0.6, 'qaband.com', horizontalalignment='center', verticalalignment='center', fontsize=11, color='black', fontproperties=custom_font)
 
     # Save the result back to the same file
     img_with_padding.save('chart.png')

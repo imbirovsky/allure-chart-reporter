@@ -54,8 +54,7 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
             if test['response_code']:
                 message += f"\t<code>{test['response_code']}</code>\n"
             message += "\n"  # Add a newline after each test message
-        if len(tests) > 5:
-            message += f"And {len(tests) - 5} more {status} tests...\n\n"
+        message += "\n"  # Add a newline after each test status
     return message
 
 def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link, allure_report_path):
