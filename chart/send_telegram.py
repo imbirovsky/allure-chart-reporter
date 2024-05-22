@@ -49,7 +49,7 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
                 break
             name_parts = test['name'].split('\n')
             if test['response_code']:
-            message += f"\n\t\t<code>{name_parts[0]}</code>\n"  # Add the first part as text
+            message += f"\t\t<code>{name_parts[0]}</code>\n"  # Add the first part as text
             message += f"\t\t<code>{test['response_code']}</code>\n"
         if len(name_parts) > 1 and is_url(name_parts[1]):
                 message += f'\t\t<a href="{name_parts[1]}">{name_parts[1]}</a>\n'  # Add the second part as a link if it's a URL
