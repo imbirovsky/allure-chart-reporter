@@ -92,7 +92,7 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     logo_image = Image.open('chart/logo.png')
 
     # Resize the logo image if necessary
-    logo_image.thumbnail((200, 200))  # Adjust the size as needed
+    logo_image.thumbnail((350, 337))  # Adjust the size as needed
 
     # Add the logo image to the up of the legend
     img_with_padding.paste(logo_image, (img_with_padding.width - logo_image.width - 90, int(img_with_padding.height / 2 - logo_image.height / 2 - 280)))
