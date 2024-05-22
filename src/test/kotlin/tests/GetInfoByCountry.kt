@@ -84,6 +84,14 @@ class GetInfoByCountry {
     }
 
     @Test
+    fun `This test will be success 4`() {
+    }
+
+    @Test
+    fun `This test will be success 5`() {
+    }
+
+    @Test
     fun `This test will fail`() {
         throw AssertionError("This test always fails")
     }
@@ -96,6 +104,11 @@ class GetInfoByCountry {
     @Test
     fun `This test will fail 3`() {
         throw AssertionError("This test always fails 3")
+    }
+
+    @Test
+    fun `This test will fail 4`() {
+        throw AssertionError("This test always fails 4")
     }
 
     @DataProvider(name = "countries")
