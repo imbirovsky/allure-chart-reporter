@@ -54,12 +54,12 @@ class GetInfoByCountry {
         throw RuntimeException("This is a broken test 3")
     }
 
-//    @Test
+    @Test
     fun `This test will be broken 4`() {
         throw RuntimeException("This is a broken test 4")
     }
 
-//    @Test
+    @Test
     fun `This test will be skipped`() {
         throw SkipException("Skipping this test")
     }

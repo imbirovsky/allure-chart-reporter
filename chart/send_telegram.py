@@ -53,7 +53,7 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
                 message += f'\t\t<a href="{name_parts[1]}">{name_parts[1]}</a>\n'
             if test['response_code']:
                 message += f"\t\t<code>{test['response_code']}</code>\n"
-            message += "\t\t\t\t\t\t-----\n"  # Add a separator between tests
+            message += "\n"
         if len(tests) > 5:
             message += f"And {len(tests) - 5} more {status} tests...\n\n"
         elif len(tests) > 0:
