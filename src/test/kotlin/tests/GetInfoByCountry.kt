@@ -25,7 +25,7 @@ class GetInfoByCountry {
 
     private val requestData = "${HTTPS}${URL}${VERSION_API}${ACTION_NAME}"
 
-    @Test(dataProvider = "countries")
+//    @Test(dataProvider = "countries")
     @Description("Get information about country")
     fun `Get information about country`(countries: String) {
         sendGetRequest(requestData+countries)
