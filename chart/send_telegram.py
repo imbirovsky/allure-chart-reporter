@@ -89,11 +89,17 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     broken_tests = get_broken_tests(allure_report_path)
     skipped_tests = get_skipped_tests(allure_report_path)
 
-    message += format_test_message('failed', failed, failed_tests)
-    message += "\n"
-    message += format_test_message('broken', broken, broken_tests)
-    message += "\n"
-    message += format_test_message('skipped', skipped, skipped_tests)
+    failed_message = format_test_message('failed', failed, failed_tests)
+    if failed_message:
+        message += failed_message + "\n\n"
+
+    broken_message = format_test_message('broken', broken, broken_tests)
+    if broken_message:
+        message += broken_message + "\n\n"
+
+    skipped_message = format_test_message('skipped', skipped, skipped_tests)
+    if skipped_message:
+        message += skipped_message + "\n\n"
 
     # Check if the message exceeds the limit
     if len(message) > max_symbols_for_message:
