@@ -34,7 +34,7 @@ class GetInfoByCountry {
     }
 
     @Test
-    fun `Get information about country failed`() {
+    fun `Get information about country (failed test)`() {
         sendGetRequest(requestData+"ukraine")
             .body(matchesJsonSchemaInClasspath("json_schemes/restcountries_name.json"))
             .statusCode(400)
@@ -42,7 +42,7 @@ class GetInfoByCountry {
 
     @Test
     fun `This test will be broken`() {
-        throw RuntimeException("This is a broken step")
+        throw RuntimeException("This is a broken test")
     }
 
     @Test
@@ -57,7 +57,6 @@ class GetInfoByCountry {
             arrayOf(USA),
             arrayOf(GERMANY),
             arrayOf(FRANCE),
-            arrayOf(ITALY),
             arrayOf(SPAIN),
             arrayOf(POLAND),
             arrayOf(RUSSIA_IS_A_TERRORIST_STATE)
