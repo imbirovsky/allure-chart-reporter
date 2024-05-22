@@ -48,14 +48,15 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
             if i >= 3:
                 break
             name_parts = test['name'].split('\n')
-            message += f"\t\t<code>{name_parts[0]}</code>\n"
+            message += f"\t\t<b>{name_parts[0]}</b>\n"
             if len(name_parts) > 1 and is_url(name_parts[1]):
                 message += f'\t\t<a href="{name_parts[1]}">{name_parts[1]}</a>\n'
             if test['response_code']:
                 message += f"\t\t<code>{test['response_code']}</code>\n"
-            if i < len(tests) - 1:  # Don't add a separator after the last test
-                message += "\t\t-----------------\n"  # Add a separator between tests
-        if len(tests) > 0:
+            message += "\t\t-----------------\n"  # Add a separator between tests
+        if len(tests) > 3:
+            message += f"And {len(tests) - 3} more {status} tests...\n\n"
+        elif len(tests) > 0:
             message += "\n"
     return message
 
@@ -73,6 +74,8 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     if len(message) > 4050:
         message = message[:4050] + "\n\nMessage is cut off as it exceeds the limit of 4096 characters."
 
+    message += "\n"  # Add an empty line at the end of the message
+
     print(f"Sending message: {message}")  # Log the message before sending
     with open(photo_path, 'rb') as photo:
         files = {'photo': photo}
@@ -87,9 +90,6 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
             'parse_mode': 'HTML',
             'reply_markup': json.dumps(reply_markup.to_dict())
         }
-        response = requests.post(url, files=files, data=data)
-        print(response.json())
-        return response.json()
 
 if __name__ == "__main__":
     token = sys.argv[1]
