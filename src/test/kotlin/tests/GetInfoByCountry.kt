@@ -46,7 +46,7 @@ class GetInfoByCountry {
             .statusCode(303)
     }
 
-//    @Test
+    @Test
     fun `This test will be broken`() {
         throw RuntimeException("This is a broken test")
     }
