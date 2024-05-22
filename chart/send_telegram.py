@@ -50,14 +50,12 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
             name_parts = test['name'].split('\n')
             message += f"\t • <code>{name_parts[0]}</code>"
             if len(name_parts) > 1 and is_url(name_parts[1]):
-                message += f'\n\t\t<a href="{name_parts[1]}">{name_parts[1]}</a>\n'
+                message += f'\n\t\t\t<a href="{name_parts[1]}">{name_parts[1]}</a>'
             if test['response_code']:
-                message += f"\t\t<code>{test['response_code']}</code>"
+                message += f" - <code>{test['response_code']}</code>"
             message += "\n"
         if len(tests) > 5:
-            message += f"And {len(tests) - 5} more {status} tests...\n"
-        # elif len(tests) > 0:
-        #     message += "\n"
+            message += f"\t\t<code>And {len(tests) - 5} more {status} tests...</code>\n"
     return message
 
 def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link, allure_report_path):
