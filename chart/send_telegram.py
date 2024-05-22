@@ -48,14 +48,14 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
             if i >= 5:
                 break
             name_parts = test['name'].split('\n')
-            message += f"\n\t\t - <code>{name_parts[0]}</code>\n"
+            message += f"\n\t\t - <code>{name_parts[0]}</code>"
             if len(name_parts) > 1 and is_url(name_parts[1]):
                 message += f'\t\t<a href="{name_parts[1]}">{name_parts[1]}</a>\n'
             if test['response_code']:
                 message += f"\t\t<code>{test['response_code']}</code>\n"
             message += "\n"
         if len(tests) > 5:
-            message += f"And {len(tests) - 5} more {status} tests...\n\n"
+            message += f"And {len(tests) - 5} more {status} tests...\n"
         # elif len(tests) > 0:
         #     message += "\n"
     return message
@@ -73,8 +73,6 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     # Check if the message exceeds the limit
     if len(message) > 4050:
         message = message[:4050] + "\n\nMessage is cut off as it exceeds the limit of 4096 characters."
-
-    message += "\n"  # Add an empty line at the end of the message
 
     print(f"Sending message: {message}")  # Log the message before sending
     with open(photo_path, 'rb') as photo:
