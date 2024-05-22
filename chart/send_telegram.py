@@ -74,17 +74,17 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     failed_tests = get_failed_tests(allure_report_path)
     if failed_tests:
         message += "\n"
-        message += format_test_message('failed', len(failed_tests), failed_tests)
+        message += format_test_message('failed', len(failed_tests), failed_tests, allure_report_path)
 
     broken_tests = get_broken_tests(allure_report_path)
     if broken_tests:
         message += "\n"
-        message += format_test_message('broken', len(broken_tests), broken_tests)
+        message += format_test_message('broken', len(broken_tests), broken_tests, allure_report_path)
 
     skipped_tests = get_skipped_tests(allure_report_path)
     if skipped_tests:
         message += "\n"
-        message += format_test_message('skipped', len(skipped_tests), skipped_tests)
+        message += format_test_message('skipped', len(skipped_tests), skipped_tests, allure_report_path)
 
     # Check if the message exceeds the limit
     if len(message) > 4050:
