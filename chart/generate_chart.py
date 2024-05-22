@@ -3,10 +3,15 @@ import matplotlib.font_manager as fm
 import matplotlib.patches as patches
 import matplotlib.lines as mlines
 from PIL import Image, ImageOps
+import numpy as np
 import sys
 
 custom_font = fm.FontProperties(fname='chart/font.ttf')
 logo_name = 'qaband.com'
+
+logo = Image.open('chart/logo.png')
+logo = logo.resize((60, 60))  # Измените размер изображения
+logo = np.array(logo)  # Преобразуйте изображение в массив numpy
 
 def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     data = [
@@ -40,6 +45,14 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     legend_elements = [mlines.Line2D([0], [0], color=d["color"], marker='.', linestyle='None', markeredgecolor=d["color"], markersize=8, markeredgewidth=1.2) for d in data if d["value"] > 0]
     labels = [d["label"] + f": {d['value']}" for d in data if d["value"] > 0]
     legend = ax.legend(legend_elements, labels, loc="center left", bbox_to_anchor=(1, 0, 0.5, 1), handlelength=1, handletextpad=0.4)
+    legend_box = legend.get_window_extent().transformed(fig.dpi_scale_trans.inverted())  # Получите координаты легенды в долях от размера фигуры
+
+    # Вычислите координаты для размещения логотипа над легендой и по центру
+    logo_x = legend_box.x0 + (legend_box.width - 60 / fig.dpi) / 2  # Центрируйте по горизонтали
+    logo_y = legend_box.y1  # Разместите над легендой
+
+    # Добавьте логотип на график
+    fig.figimage(logo, xo=logo_x * fig.dpi, yo=logo_y * fig.dpi, origin='upper')
 
     # Apply custom font to legend text
     for text in legend.get_texts():
@@ -73,7 +86,7 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     plt.text(0, -0.10, f'{int(minutes)}min {int(seconds)}sec', horizontalalignment='center', verticalalignment='center', fontsize=6.5, color='grey', fontproperties=custom_font)
 
     # Add the text "logo_name" to the up of the legend
-    plt.text(1.82, 0.6, logo_name, horizontalalignment='center', verticalalignment='center', fontsize=11, color='black', fontproperties=custom_font)
+    # plt.text(1.82, 0.6, logo_name, horizontalalignment='center', verticalalignment='center', fontsize=11, color='black', fontproperties=custom_font)
 
     # Save the plot
     plt.savefig('chart.png', dpi=300, bbox_inches='tight', pad_inches=0.1)
