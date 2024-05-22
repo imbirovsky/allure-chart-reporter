@@ -64,27 +64,12 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     message += f"<b>• Total ({total})</b>\n\n"
     if int(passed) > 0:
         message += f"<b>• Passed ({passed})</b>\n"
-    # message += "\n"
-    # message += format_test_message('failed', failed, get_failed_tests, allure_report_path)
-    # message += "\n"
-    # message += format_test_message('broken', broken, get_broken_tests, allure_report_path)
-    # message += "\n"
-    # message += format_test_message('skipped', skipped, get_skipped_tests, allure_report_path)
-
-    failed_tests = get_failed_tests(allure_report_path)
-    if failed_tests:
-        message += "\n"
-        message += format_test_message('failed', len(failed_tests), failed_tests, allure_report_path)
-
-    broken_tests = get_broken_tests(allure_report_path)
-    if broken_tests:
-        message += "\n"
-        message += format_test_message('broken', len(broken_tests), broken_tests, allure_report_path)
-
-    skipped_tests = get_skipped_tests(allure_report_path)
-    if skipped_tests:
-        message += "\n"
-        message += format_test_message('skipped', len(skipped_tests), skipped_tests, allure_report_path)
+    message += "\n"
+    message += format_test_message('failed', failed, get_failed_tests, allure_report_path)
+    message += "\n"
+    message += format_test_message('broken', broken, get_broken_tests, allure_report_path)
+    message += "\n"
+    message += format_test_message('skipped', skipped, get_skipped_tests, allure_report_path)
 
     # Check if the message exceeds the limit
     if len(message) > 4050:
@@ -92,7 +77,7 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
 
     footer = "          •••••          "
     centered_footer = footer.center(50)
-    message += "\n"
+    # message += "\n"
     message += centered_footer
     message += "\n"
 
