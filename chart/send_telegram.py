@@ -73,8 +73,8 @@ def format_test_message(status, count, tests):
 def create_keyboard(report_link):
     keyboard = [
         [InlineKeyboardButton("🔗 Link to report", url=report_link)],
-        [InlineKeyboardButton("🔄 Restart the tests", callback_data='confirm_restart')],
-        InlineKeyboardButton("🇺🇦 Stop Russian Aggression", url='https://war.ukraine.ua/')
+        [InlineKeyboardButton("🔄 Restart the tests", callback_data='restart_tests')],
+        [InlineKeyboardButton("🇺🇦 Stop Russian Aggression", url='https://war.ukraine.ua/')],
     ]
     return InlineKeyboardMarkup(keyboard)
 
