@@ -59,11 +59,11 @@ def format_test_message(status, count, tests):
                 break
             name_parts = test['name'].split('\n')
             message += f"\t • <code>{name_parts[0]}</code>"
-            if len(name_parts) > 1 and is_url(name_parts[1]) and test['response_code']:
-                message += f'\n\t\t\t<a href="{name_parts[1]}">{name_parts[1]}</a>\n'
-            elif test['response_code']:
+            if len(name_parts) > 1 and is_url(name_parts[1]):
+                message += f'\n\t\t\t<a href="{name_parts[1]}">{name_parts[1]}</a>'
+            if test['response_code']:
                 message += f" - <code>{test['response_code']}</code>"
-            if i < len(tests) - 1:  # Если это не последний тест, добавить перенос строки
+            if i < len(tests) - 1:
                 message += "\n"
         if len(tests) > max_tests_for_telegram_report:
             message += f"\t\t\t<code>And {len(tests) - max_tests_for_telegram_report} more {status} tests...</code>\n"
