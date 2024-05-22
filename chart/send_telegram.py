@@ -71,8 +71,8 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     message += format_test_message('skipped', skipped, get_skipped_tests, allure_report_path)
 
     # Check if the message exceeds the limit
-    if len(message) > 3000:
-        message = message[:3000] + "\n\nMessage is cut off as it exceeds the limit of 4096 characters."
+    if len(message) > 4050:
+        message = message[:4050] + "\n\nMessage is cut off as it exceeds the limit of 4096 characters."
 
     message += "\n"  # Add an empty line at the end of the message
 
@@ -90,6 +90,9 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
             'parse_mode': 'HTML',
             'reply_markup': json.dumps(reply_markup.to_dict())
         }
+        response = requests.post(url, files=files, data=data)
+        print(response.json())
+        return response.json()
 
 if __name__ == "__main__":
     token = sys.argv[1]
