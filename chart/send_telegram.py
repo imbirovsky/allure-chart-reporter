@@ -42,7 +42,7 @@ def get_skipped_tests(allure_report_path):
 def format_test_message(status, count, get_tests_func, allure_report_path):
     message = ""
     if int(count) > 0:
-        message += f"<b>• {status.capitalize()} = {count}:</b>\n"
+        message += f"<b>• {status.capitalize()} ( {count}):</b>\n"
         tests = get_tests_func(allure_report_path)
         for i, test in enumerate(tests):
             if i >= 5:
@@ -60,12 +60,6 @@ def format_test_message(status, count, get_tests_func, allure_report_path):
 
 def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link, allure_report_path):
     url = f"https://api.telegram.org/bot{token}/sendPhoto"
-    header = "••••••••••••••••••••••••"  # Your footer
-    centered_header = header.center(50)  # Center the footer within a string of length 50
-    message = ""
-    message += "\n"  # Add a newline before the footer
-    message += centered_header  # Add the centered footer
-    message += "\n"  # Add a newline after the footer
     message = f"<b>Tests completed</b>\n\n"
     message += f"<b>• Total: {total}</b>\n\n"
     if int(passed) > 0:
