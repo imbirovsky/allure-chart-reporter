@@ -42,19 +42,19 @@ def get_skipped_tests(allure_report_path):
 def format_test_message(status, count, get_tests_func, allure_report_path):
     message = ""
     if int(count) > 0:
-        message += f"<code>• {status.capitalize()}: {count}</code>\n"  # Add one newline at the end
+        message += f"<code>• {status.capitalize()}: {count}</code>\n"
         tests = get_tests_func(allure_report_path)
         for i, test in enumerate(tests):
             if i >= 5:
                 break
             name_parts = test['name'].split('\n')
             if test['response_code']:
-                message += f"\t\t<code>{test['response_code']}</code>\n"
             message += f"\t\t<b>{name_parts[0]}</b>\n"  # Add the first part as text
-            if len(name_parts) > 1 and is_url(name_parts[1]):
+            message += f"\t\t<code>{test['response_code']}</code>\n"
+        if len(name_parts) > 1 and is_url(name_parts[1]):
                 message += f'\t\t<a href="{name_parts[1]}">{name_parts[1]}</a>\n'  # Add the second part as a link if it's a URL
         if len(tests) > 0:
-            message += "\n"  # Add an extra newline if there are tests with this status
+            message += "\n"
     return message
 
 def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link, allure_report_path):
@@ -68,8 +68,8 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     message += format_test_message('skipped', skipped, get_skipped_tests, allure_report_path)
 
     # Check if the message exceeds the limit
-    if len(message) > 4090:
-        message = message[:4090] + "\n\nMessage is cut off as it exceeds the limit of 4096 characters."
+    if len(message) > 4050:
+        message = message[:4050] + "\n\nMessage is cut off as it exceeds the limit of 4096 characters."
 
     print(f"Sending message: {message}")  # Log the message before sending
     with open(photo_path, 'rb') as photo:
