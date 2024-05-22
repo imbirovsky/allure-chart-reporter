@@ -1,4 +1,4 @@
-name: Run tests and publish report
+name: Run tests and send chart with statistics to Telegram
 on:
   schedule:
     - cron: '0 0 * * *'
@@ -6,9 +6,7 @@ on:
   repository_dispatch:
   push:
 env:
-  GITHUB_USER: imbirovsky
-  PROJECT_NAME: allure-chart-reporter
-  TEST_REPORT_URL: https://${{ env.GITHUB_USER }}.github.io/${{ env.PROJECT_NAME }}/
+  TEST_REPORT_URL: ${{ secrets.ALLURE_LINK }}
   ALLURE_RESULT_DIR: target/allure-results
 jobs:
   test:
