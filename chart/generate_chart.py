@@ -77,26 +77,10 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
 
     # Add padding
     padding = (20, 20, 20, 20)  # Change these values to adjust the padding size
-    # Создайте объект Figure и Axes для отрисовки текста
-    fig, ax = plt.subplots()
+    img_with_padding = ImageOps.expand(img, border=padding, fill='white')
 
-    # Отключите отображение осей
-    ax.axis('off')
-
-    # Добавьте текст на изображение
-    ax.text(0.5, 0.5, 'qaband.com', fontsize=20, ha='center', fontproperties=custom_font)
-
-    # Сохраните изображение в файл
-    plt.savefig('text.png', dpi=300, bbox_inches='tight', pad_inches=0)
-
-    # Загрузите сохраненное изображение
-    text_image = Image.open('text.png')
-
-    # Добавьте изображение с текстом на исходное изображение
-    img_with_padding.paste(text_image, (img_with_padding.width - text_image.width - 90, int(img_with_padding.height / 2 - text_image.height / 2 - 280)))
-
-    # Add the logo image to the up of the legend
-    # img_with_padding.paste(logo_image, (img_with_padding.width - logo_image.width - 90, int(img_with_padding.height / 2 - logo_image.height / 2 - 280)))
+    # Add the text "qaband.com" to the up of the legend
+    plt.text(1.2, 0.6, 'qaband.com', horizontalalignment='center', verticalalignment='center', fontsize=11, color='black', fontproperties=custom_font)
 
     # Save the result back to the same file
     img_with_padding.save('chart.png')
