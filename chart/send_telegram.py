@@ -42,11 +42,10 @@ def get_broken_tests(allure_report_path):
 def get_skipped_tests(allure_report_path):
     return get_tests_by_status(allure_report_path, ['skipped'])
 
-def format_test_message(status, count, get_tests_func, allure_report_path):
+def format_test_message(status, count, tests):
     message = ""
     if int(count) > 0:
         message += f"<b>• {status.capitalize()} ({count}):</b>\n"
-        tests = get_tests_func(allure_report_path)
         for i, test in enumerate(tests):
             if i >= max_tests_for_telegram_report:
                 break
@@ -79,12 +78,11 @@ def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, br
     broken_tests = get_broken_tests(allure_report_path)
     skipped_tests = get_skipped_tests(allure_report_path)
 
+    message += format_test_message('failed', failed, failed_tests)
     message += "\n"
-    message += format_test_message('failed', failed, failed_tests, allure_report_path)
+    message += format_test_message('broken', broken, broken_tests)
     message += "\n"
-    message += format_test_message('broken', broken, broken_tests, allure_report_path)
-    message += "\n"
-    message += format_test_message('skipped', skipped, skipped_tests, allure_report_path)
+    message += format_test_message('skipped', skipped, skipped_tests)
 
     # Check if the message exceeds the limit
     if len(message) > max_symbols_for_message:
