@@ -77,16 +77,26 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
 
     # Add padding
     padding = (20, 20, 20, 20)  # Change these values to adjust the padding size
-    img_with_padding = ImageOps.expand(img, border=padding, fill='white')
+    # Создайте объект Figure и Axes для отрисовки текста
+    fig, ax = plt.subplots()
 
-    # Load the logo image
-    logo_image = Image.open('chart/logo.png')
+    # Отключите отображение осей
+    ax.axis('off')
 
-    # Resize the logo image if necessary
-    # logo_image = logo_image.resize((204, 50))  # Adjust the size as needed
+    # Добавьте текст на изображение
+    ax.text(0.5, 0.5, 'qaband.com', fontsize=20, ha='center', fontproperties=custom_font)
+
+    # Сохраните изображение в файл
+    plt.savefig('text.png', dpi=300, bbox_inches='tight', pad_inches=0)
+
+    # Загрузите сохраненное изображение
+    text_image = Image.open('text.png')
+
+    # Добавьте изображение с текстом на исходное изображение
+    img_with_padding.paste(text_image, (img_with_padding.width - text_image.width - 90, int(img_with_padding.height / 2 - text_image.height / 2 - 280)))
 
     # Add the logo image to the up of the legend
-    img_with_padding.paste(logo_image, (img_with_padding.width - logo_image.width - 90, int(img_with_padding.height / 2 - logo_image.height / 2 - 280)))
+    # img_with_padding.paste(logo_image, (img_with_padding.width - logo_image.width - 90, int(img_with_padding.height / 2 - logo_image.height / 2 - 280)))
 
     # Save the result back to the same file
     img_with_padding.save('chart.png')
