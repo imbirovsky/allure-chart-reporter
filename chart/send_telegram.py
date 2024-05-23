@@ -5,6 +5,10 @@ import sys
 import glob
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
+RUN_ID = os.getenv('GITHUB_RUN_ID')
+RUN_NUMBER = os.getenv('GITHUB_RUN_NUMBER')
+REPO_NAME = os.getenv('GITHUB_REPOSITORY')
+RUN_URL = f"https://github.com/{REPO_NAME}/actions/runs/{RUN_ID}"
 MAX_TESTS_FOR_TELEGRAM_REPORT = 7
 URL_REGEX = re.compile(
     r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
@@ -72,6 +76,7 @@ def create_keyboard(report_link):
     keyboard = [
         [InlineKeyboardButton("🔗 Link to report", url=report_link)],
         # [InlineKeyboardButton("🔄 Restart the tests", callback_data='restart_tests')],
+        [InlineKeyboardButton("ℹ️ View Run Details", url=RUN_URL)],
         [InlineKeyboardButton("🇺🇦 Stop Russian Aggression", url='https://war.ukraine.ua/')],
     ]
     return InlineKeyboardMarkup(keyboard)
@@ -80,7 +85,7 @@ def create_keyboard(report_link):
 def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link,
                            allure_report_path):
     url = f"https://api.telegram.org/bot{token}/sendPhoto"
-    message = f"\n\n<b>Test Results</b>\n\n"
+    message = f"\n\n<b>Test Results | #{RUN_NUMBER}</b>\n\n"
     message += f"• Total ({total})\n\n"
     if int(passed) > 0:
         message += f"• Passed ({passed})\n\n"
