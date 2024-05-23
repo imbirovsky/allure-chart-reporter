@@ -80,7 +80,7 @@ def create_keyboard(report_link):
 def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link,
                            allure_report_path):
     url = f"https://api.telegram.org/bot{token}/sendPhoto"
-    message = f"\n\n<b>Test Results:</b>\n\n"
+    message = f"\n\n<b>Test Results</b>\n\n"
     message += f"• Total ({total})\n\n"
     if int(passed) > 0:
         message += f"• Passed ({passed})\n\n"
