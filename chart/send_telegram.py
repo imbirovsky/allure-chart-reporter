@@ -51,7 +51,7 @@ def get_skipped_tests(allure_report_path):
 def format_test_message(status, count, tests):
     message = ""
     if int(count) > 0:
-        message += f"<b>• {status.capitalize()} ({count}):</b>\n"
+        message += f"• {status.capitalize()} ({count}):\n"
         for i, test in enumerate(tests):
             if i >= MAX_TESTS_FOR_TELEGRAM_REPORT:
                 break
@@ -80,10 +80,10 @@ def create_keyboard(report_link):
 def send_photo_and_message(token, chat_id, photo_path, total, passed, failed, broken, skipped, report_link,
                            allure_report_path):
     url = f"https://api.telegram.org/bot{token}/sendPhoto"
-    message = f"\n\n•••\n\n"
-    message += f"<b>• Total ({total})</b>\n\n"
+    message = f"\n\n••• <b>Test Results</b>\n\n"
+    message += f"• Total ({total})\n\n"
     if int(passed) > 0:
-        message += f"<b>• Passed ({passed})</b>\n\n"
+        message += f"• Passed ({passed})\n\n"
 
     failed_tests = get_failed_tests(allure_report_path)
     broken_tests = get_broken_tests(allure_report_path)
