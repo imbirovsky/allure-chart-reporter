@@ -34,7 +34,7 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     wedges, texts, autotexts = ax.pie(sizes, colors=colors, startangle=90, autopct='%1.2f%%', textprops={'color':'black'})
 
     # Change the font size
-    plt.setp(autotexts, size=7, weight="bold")
+    plt.setp(autotexts, size=5, weight="bold")
 
     # Set the title
     plt.title("Test Results", fontproperties=CUSTOM_FONT, fontsize=12, color='black')
