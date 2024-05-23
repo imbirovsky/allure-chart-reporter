@@ -31,7 +31,7 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
 
     # Plot
     fig, ax = plt.subplots(figsize=(6.4 * 0.83, 4.8 * 0.83))
-    wedges, texts, autotexts = ax.pie(sizes, colors=colors, startangle=90, autopct='%1.2f%%', textprops={'color':'gray'})
+    wedges, texts, autotexts = ax.pie(sizes, colors=colors, startangle=90, autopct='%1.2f%%', textprops={'color':'darkgray'})
 
     # Change the font size
     plt.setp(autotexts, size=6)
@@ -72,7 +72,7 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
 
     # Add sum_duration text
     minutes, seconds = divmod(int(sum_duration) / 1000, 60)  # Convert from milliseconds to seconds
-    plt.text(0, -0.10, f'{int(minutes)}min {int(seconds)}sec', horizontalalignment='center', verticalalignment='center', fontsize=6.5, color='grey', fontproperties=CUSTOM_FONT)
+    plt.text(0, -0.10, f'{int(minutes)}min {int(seconds)}sec', horizontalalignment='center', verticalalignment='center', fontsize=6.5, color='gray', fontproperties=CUSTOM_FONT)
 
     # Add the text "logo_name" to the up of the legend
     plt.text(1.82, 0.6, LOGO_NAME, horizontalalignment='center', verticalalignment='center', fontsize=11.5, color='black', fontproperties=CUSTOM_FONT)
