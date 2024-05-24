@@ -39,7 +39,7 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
                                       textprops={'color': 'black'})
 
     # Change the font size
-    plt.setp(autotexts, size=5)
+    plt.setp(autotexts, size=5, weight='bold')
 
     # Set the title
     plt.title("Test Results", fontproperties=CUSTOM_FONT, fontsize=12, color='black')

@@ -1,4 +1,4 @@
-name: Run tests and send chart with statistics to Telegram
+name: Run tests and send chart with statistics to Telegram / Slack
 on:
   schedule:
     - cron: '0 0 * * *'
@@ -107,3 +107,7 @@ jobs:
       - name: Send notification to Telegram
         run: |
           python3 chart/send_telegram.py ${{ secrets.TELEGRAM_BOT_TOKEN }} ${{ secrets.TELEGRAM_CHAT_ID }} ./chart.png ${{ env.TOTAL }} ${{ env.PASSED }} ${{ env.FAILED }} ${{ env.BROKEN }} ${{ env.SKIPPED }} ${{ env.TEST_REPORT_URL }} ${{ env.ALLURE_RESULT_DIR }}
+
+      - name: Send notification to Slack
+        run: |
+          python3 chart/send_slack.py ${{ secrets.SLACK_BOT_TOKEN }} ${{ secrets.SLACK_CHAT_ID }} ./chart.png ${{ env.TOTAL }} ${{ env.PASSED }} ${{ env.FAILED }} ${{ env.BROKEN }} ${{ env.SKIPPED }} ${{ env.TEST_REPORT_URL }} ${{ env.ALLURE_RESULT_DIR }}
