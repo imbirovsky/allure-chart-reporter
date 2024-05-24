@@ -82,7 +82,7 @@ jobs:
       - name: Install Python and required packages
         run: |
           sudo apt-get install python3 python3-pip
-          pip3 install python-telegram-bot matplotlib fontTools requests
+          pip3 install python-telegram-bot matplotlib fontTools requests slack_sdk
 
       - name: Generate chart
         id: generate_chart
