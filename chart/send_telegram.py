@@ -65,7 +65,7 @@ def format_test_message(status, count, tests):
             if len(name_parts) > 1 and is_url(name_parts[1]):
                 message += f'\n\t\t\t<a href="{name_parts[1]}">{name_parts[1]}</a>'
             if test['response_code']:
-                message += f" - <code>{test['response_code']}</code>"
+                message += f"\t\t\t<code>{test['response_code']}</code>"
             if i < len(tests) - 1:
                 message += "\n"
         if len(tests) > MAX_TESTS_FOR_TELEGRAM_REPORT:
@@ -76,7 +76,6 @@ def format_test_message(status, count, tests):
 def create_keyboard(report_link):
     keyboard = [
         [InlineKeyboardButton("🔗 Link to report", url=report_link)],
-        # [InlineKeyboardButton("🔄 Restart the tests", callback_data='restart_tests')],
         [InlineKeyboardButton("ℹ️ View Run Details", url=RUN_URL)],
         [InlineKeyboardButton("🇺🇦 Stop Russian Aggression", url='https://war.ukraine.ua/')],
     ]

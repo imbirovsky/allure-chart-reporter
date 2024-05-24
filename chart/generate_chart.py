@@ -5,9 +5,8 @@ import matplotlib.lines as mlines
 from PIL import Image, ImageOps
 import sys
 
-FONT_PATH = 'chart/font.ttf'
 LOGO_NAME = 'qaband.com'
-CUSTOM_FONT = fm.FontProperties(fname=FONT_PATH)
+CUSTOM_FONT = fm.FontProperties(fname='chart/font.ttf')
 
 
 def create_legend_elements(data):

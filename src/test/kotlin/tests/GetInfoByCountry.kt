@@ -24,19 +24,12 @@ class GetInfoByCountry {
 
     private val requestData = "${HTTPS}${URL}${VERSION_API}${ACTION_NAME}"
 
-//    @Test(dataProvider = "countries")
+    @Test(dataProvider = "countries")
     @Description("Get information about country")
     fun `Get information about country`(countries: String) {
         sendGetRequest(requestData+countries)
             .body(matchesJsonSchemaInClasspath("json_schemes/restcountries_name.json"))
             .statusCode(200)
-    }
-
-//    @Test
-    fun `Get info about country (failed)`() {
-        sendGetRequest(requestData+"ukraine")
-            .body(matchesJsonSchemaInClasspath("json_schemes/restcountries_name.json"))
-            .statusCode(400)
     }
 
     @Test
@@ -50,21 +43,21 @@ class GetInfoByCountry {
     fun `This test will be broken`() {
         throw RuntimeException("This is a broken test")
     }
-//
-//    @Test
-//    fun `This test will be broken 2`() {
-//        throw RuntimeException("This is a broken test 2")
-//    }
-//
-//    @Test
-//    fun `This test will be broken 3`() {
-//        throw RuntimeException("This is a broken test 3")
-//    }
-//
-//    @Test
-//    fun `This test will be broken 4`() {
-//        throw RuntimeException("This is a broken test 4")
-//    }
+
+    @Test
+    fun `This test will be broken 2`() {
+        throw RuntimeException("This is a broken test 2")
+    }
+
+    @Test
+    fun `This test will be broken 3`() {
+        throw RuntimeException("This is a broken test 3")
+    }
+
+    @Test
+    fun `This test will be broken 4`() {
+        throw RuntimeException("This is a broken test 4")
+    }
 
     @Test
     fun `This test will be skipped`() {
@@ -75,26 +68,26 @@ class GetInfoByCountry {
     fun `This test will be skipped 2`() {
         throw SkipException("Skipping this test 2")
     }
-//
-//    @Test
-//    fun `This test will be skipped 3`() {
-//        throw SkipException("Skipping this test 3")
-//    }
-//
-//    @Test
-//    fun `This test will be skipped 4`() {
-//        throw SkipException("Skipping this test 4")
-//    }
-//
-//    @Test
-//    fun `This test will be skipped 5`() {
-//        throw SkipException("Skipping this test 5")
-//    }
-//
-//    @Test
-//    fun `This test will be skipped 6`() {
-//        throw SkipException("Skipping this test 6")
-//    }
+
+    @Test
+    fun `This test will be skipped 3`() {
+        throw SkipException("Skipping this test 3")
+    }
+
+    @Test
+    fun `This test will be skipped 4`() {
+        throw SkipException("Skipping this test 4")
+    }
+
+    @Test
+    fun `This test will be skipped 5`() {
+        throw SkipException("Skipping this test 5")
+    }
+
+    @Test
+    fun `This test will be skipped 6`() {
+        throw SkipException("Skipping this test 6")
+    }
 
     @Test
     fun `This test will be success`() {
@@ -112,45 +105,45 @@ class GetInfoByCountry {
     fun `This test will be success 4`() {
     }
 
-//    @Test
-//    fun `This test will be success 5`() {
-//    }
-//
-//    @Test
-//    fun `This test will be success 6`() {
-//    }
-//
-//    @Test
-//    fun `This test will be success 7`() {
-//    }
-//
-//    @Test
-//    fun `This test will be success 8`() {
-//    }
-//
-//    @Test
-//    fun `This test will be success 9`() {
-//    }
+    @Test
+    fun `This test will be success 5`() {
+    }
+
+    @Test
+    fun `This test will be success 6`() {
+    }
+
+    @Test
+    fun `This test will be success 7`() {
+    }
+
+    @Test
+    fun `This test will be success 8`() {
+    }
+
+    @Test
+    fun `This test will be success 9`() {
+    }
 
     @Test
     fun `This test will fail`() {
         throw AssertionError("This test always fails")
     }
 
-//    @Test
-//    fun `This test will fail 2`() {
-//        throw AssertionError("This test always fails 2")
-//    }
+    @Test
+    fun `This test will fail 2`() {
+        throw AssertionError("This test always fails 2")
+    }
 
-//    @Test
-//    fun `This test will fail 3`() {
-//        throw AssertionError("This test always fails 3")
-//    }
-//
-//    @Test
-//    fun `This test will fail 4`() {
-//        throw AssertionError("This test always fails 4")
-//    }
+    @Test
+    fun `This test will fail 3`() {
+        throw AssertionError("This test always fails 3")
+    }
+
+    @Test
+    fun `This test will fail 4`() {
+        throw AssertionError("This test always fails 4")
+    }
 
     @DataProvider(name = "countries")
     fun assetsList(): Array<Array<String>> {

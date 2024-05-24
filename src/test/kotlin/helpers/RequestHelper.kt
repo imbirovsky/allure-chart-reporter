@@ -7,17 +7,14 @@ import io.qameta.allure.restassured.AllureRestAssured
 import io.restassured.RestAssured
 import io.restassured.response.ValidatableResponse
 import io.restassured.specification.RequestSpecification
-import org.junit.runners.Parameterized
 
 object RequestHelper {
 
-    @Parameterized.Parameters
-    fun sendRequest(): RequestSpecification {
+    private fun sendRequest(): RequestSpecification {
         return RestAssured.given().filter(AllureRestAssured()).log().all()
     }
 
-    @Parameterized.Parameters
-    fun sendRequest(body: String = ""): RequestSpecification {
+    private fun sendRequest(body: String = ""): RequestSpecification {
         return RestAssured.given().filter(AllureRestAssured()).log().all().body(body)
     }
 
