@@ -1,0 +1,212 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "name",
+      "tld",
+      "cca2",
+      "ccn3",
+      "cca3",
+      "cioc",
+      "independent",
+      "status",
+      "unMember",
+      "currencies",
+      "idd",
+      "capital",
+      "altSpellings",
+      "region",
+      "subregion",
+      "languages",
+      "translations",
+      "latlng",
+      "landlocked",
+      "borders",
+      "area",
+      "demonyms",
+      "flag",
+      "maps",
+      "population",
+      "gini",
+      "fifa",
+      "car",
+      "timezones",
+      "continents",
+      "flags",
+      "coatOfArms",
+      "startOfWeek",
+      "capitalInfo",
+      "postalCode"
+    ],
+    "properties": {
+      "name": {
+        "type": "object",
+        "properties": {
+          "common": { "type": "string" },
+          "official": { "type": "string" },
+          "nativeName": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "official": { "type": "string" },
+                "common": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "tld": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "cca2": { "type": "string" },
+      "ccn3": { "type": "string" },
+      "cca3": { "type": "string" },
+      "cioc": { "type": "string" },
+      "independent": { "type": "boolean" },
+      "status": { "type": "string" },
+      "unMember": { "type": "boolean" },
+      "currencies": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "symbol": { "type": "string" }
+          }
+        }
+      },
+      "idd": {
+        "type": "object",
+        "properties": {
+          "root": { "type": "string" },
+          "suffixes": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      },
+      "capital": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "altSpellings": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "region": { "type": "string" },
+      "subregion": { "type": "string" },
+      "languages": {
+        "type": "object",
+        "additionalProperties": { "type": "string" }
+      },
+      "translations": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "object",
+          "properties": {
+            "official": { "type": "string" },
+            "common": { "type": "string" }
+          }
+        }
+      },
+      "latlng": {
+        "type": "array",
+        "items": { "type": "number" }
+      },
+      "landlocked": { "type": "boolean" },
+      "borders": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "area": { "type": "number" },
+      "demonyms": {
+        "type": "object",
+        "properties": {
+          "eng": {
+            "type": "object",
+            "properties": {
+              "f": { "type": "string" },
+              "m": { "type": "string" }
+            }
+          },
+          "fra": {
+            "type": "object",
+            "properties": {
+              "f": { "type": "string" },
+              "m": { "type": "string" }
+            }
+          }
+        }
+      },
+      "flag": { "type": "string" },
+      "maps": {
+        "type": "object",
+        "properties": {
+          "googleMaps": { "type": "string" },
+          "openStreetMaps": { "type": "string" }
+        }
+      },
+      "population": { "type": "integer" },
+      "gini": {
+        "type": "object",
+        "properties": {
+          "2019": { "type": "number" }
+        }
+      },
+      "fifa": { "type": "string" },
+      "car": {
+        "type": "object",
+        "properties": {
+          "signs": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "side": { "type": "string" }
+        }
+      },
+      "timezones": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "continents": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "flags": {
+        "type": "object",
+        "properties": {
+          "png": { "type": "string" },
+          "svg": { "type": "string" },
+          "alt": { "type": "string" }
+        }
+      },
+      "coatOfArms": {
+        "type": "object",
+        "properties": {
+          "png": { "type": "string" },
+          "svg": { "type": "string" }
+        }
+      },
+      "startOfWeek": { "type": "string" },
+      "capitalInfo": {
+        "type": "object",
+        "properties": {
+          "latlng": {
+            "type": "array",
+            "items": { "type": "number" }
+          }
+        }
+      },
+      "postalCode": {
+        "type": "object",
+        "properties": {
+          "format": { "type": "string" },
+          "regex": { "type": "string" }
+        }
+      }
+    }
+  }
+}
