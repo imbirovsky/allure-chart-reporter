@@ -19,8 +19,8 @@ import org.testng.SkipException
 import org.testng.annotations.DataProvider
 import org.testng.annotations.Test
 
-@Epic("Get Information by countries")
-class GetInfoByCountry {
+@Epic("All Statuses Tests")
+class AllStatusesTests {
 
     private val requestData = "${HTTPS}${URL}${VERSION_API}${ACTION_NAME}"
 
