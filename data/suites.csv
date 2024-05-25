@@ -1,40 +1,40 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"skipped","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped 6","This test will be skipped 6",""
-"passed","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 4","This test will be success 4",""
-"failed","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will fail","This test will fail",""
-"failed","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","1","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will fail 4","This test will fail 4",""
-"passed","Fri May 24 20:22:22 GMT 2024","Fri May 24 20:22:31 GMT 2024","8320","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
-https://restcountries.com/v3.1/name/ukraine","Get information about country"
-"passed","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 5","This test will be success 5",""
-"passed","Fri May 24 20:23:51 GMT 2024","Fri May 24 20:24:37 GMT 2024","46332","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
-https://restcountries.com/v3.1/name/poland","Get information about country"
-"skipped","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped 2","This test will be skipped 2",""
-"failed","Fri May 24 20:24:37 GMT 2024","Fri May 24 20:24:46 GMT 2024","8458","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
-https://restcountries.com/v3.1/name/country_404","Get information about country"
-"broken","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","1","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be broken 3","This test will be broken 3",""
-"passed","Fri May 24 20:23:28 GMT 2024","Fri May 24 20:23:35 GMT 2024","6854","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
-https://restcountries.com/v3.1/name/france","Get information about country"
-"failed","Fri May 24 20:22:12 GMT 2024","Fri May 24 20:22:22 GMT 2024","10163","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get info about country 404","Get info about country 404
-https://restcountries.com/v3.1/name/russia",""
-"skipped","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped","This test will be skipped",""
-"passed","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success","This test will be success",""
-"skipped","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","1","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped 3","This test will be skipped 3",""
-"passed","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 9","This test will be success 9",""
-"broken","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be broken 4","This test will be broken 4",""
-"passed","Fri May 24 20:23:35 GMT 2024","Fri May 24 20:23:51 GMT 2024","15659","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
-https://restcountries.com/v3.1/name/spain","Get information about country"
-"passed","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 3","This test will be success 3",""
-"broken","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be broken 2","This test will be broken 2",""
-"skipped","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped 4","This test will be skipped 4",""
-"failed","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will fail 2","This test will fail 2",""
-"broken","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be broken","This test will be broken",""
-"passed","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 7","This test will be success 7",""
-"passed","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 8","This test will be success 8",""
-"failed","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","1","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will fail 3","This test will fail 3",""
-"passed","Fri May 24 20:22:31 GMT 2024","Fri May 24 20:23:19 GMT 2024","48103","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
-https://restcountries.com/v3.1/name/usa","Get information about country"
-"passed","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 6","This test will be success 6",""
-"skipped","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","1","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped 5","This test will be skipped 5",""
-"passed","Fri May 24 20:23:19 GMT 2024","Fri May 24 20:23:28 GMT 2024","9488","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
+"passed","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","91","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
 https://restcountries.com/v3.1/name/germany","Get information about country"
-"passed","Fri May 24 20:24:46 GMT 2024","Fri May 24 20:24:46 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 2","This test will be success 2",""
+"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 5","This test will be success 5",""
+"failed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will fail 3","This test will fail 3",""
+"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","1","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 3","This test will be success 3",""
+"failed","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","71","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
+https://restcountries.com/v3.1/name/country_404","Get information about country"
+"failed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will fail 2","This test will fail 2",""
+"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 4","This test will be success 4",""
+"failed","Sat May 25 01:11:41 GMT 2024","Sat May 25 01:11:43 GMT 2024","1556","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get info about country 404","Get info about country 404
+https://restcountries.com/v3.1/name/russia",""
+"skipped","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped 4","This test will be skipped 4",""
+"skipped","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped 5","This test will be skipped 5",""
+"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 8","This test will be success 8",""
+"failed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will fail","This test will fail",""
+"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 7","This test will be success 7",""
+"passed","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","87","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
+https://restcountries.com/v3.1/name/france","Get information about country"
+"skipped","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped","This test will be skipped",""
+"skipped","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped 6","This test will be skipped 6",""
+"broken","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be broken 3","This test will be broken 3",""
+"broken","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","1","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be broken","This test will be broken",""
+"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 2","This test will be success 2",""
+"skipped","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped 2","This test will be skipped 2",""
+"skipped","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","1","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped 3","This test will be skipped 3",""
+"passed","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","78","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
+https://restcountries.com/v3.1/name/poland","Get information about country"
+"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success","This test will be success",""
+"broken","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","1","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be broken 2","This test will be broken 2",""
+"passed","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","86","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
+https://restcountries.com/v3.1/name/spain","Get information about country"
+"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","1","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 6","This test will be success 6",""
+"passed","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","130","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
+https://restcountries.com/v3.1/name/usa","Get information about country"
+"broken","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","1","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be broken 4","This test will be broken 4",""
+"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 9","This test will be success 9",""
+"passed","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","122","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
+https://restcountries.com/v3.1/name/ukraine","Get information about country"
+"failed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will fail 4","This test will fail 4",""
