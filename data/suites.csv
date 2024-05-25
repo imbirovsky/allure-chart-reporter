@@ -1,40 +1,23 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","91","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
-https://restcountries.com/v3.1/name/germany","Get information about country"
-"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 5","This test will be success 5",""
-"failed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will fail 3","This test will fail 3",""
-"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","1","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 3","This test will be success 3",""
-"failed","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","71","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
-https://restcountries.com/v3.1/name/country_404","Get information about country"
-"failed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will fail 2","This test will fail 2",""
-"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 4","This test will be success 4",""
-"failed","Sat May 25 01:11:41 GMT 2024","Sat May 25 01:11:43 GMT 2024","1556","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get info about country 404","Get info about country 404
-https://restcountries.com/v3.1/name/russia",""
-"skipped","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped 4","This test will be skipped 4",""
-"skipped","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped 5","This test will be skipped 5",""
-"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 8","This test will be success 8",""
-"failed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will fail","This test will fail",""
-"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 7","This test will be success 7",""
-"passed","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","87","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
-https://restcountries.com/v3.1/name/france","Get information about country"
-"skipped","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped","This test will be skipped",""
-"skipped","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped 6","This test will be skipped 6",""
-"broken","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be broken 3","This test will be broken 3",""
-"broken","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","1","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be broken","This test will be broken",""
-"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 2","This test will be success 2",""
-"skipped","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped 2","This test will be skipped 2",""
-"skipped","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","1","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be skipped 3","This test will be skipped 3",""
-"passed","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","78","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
-https://restcountries.com/v3.1/name/poland","Get information about country"
-"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success","This test will be success",""
-"broken","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","1","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be broken 2","This test will be broken 2",""
-"passed","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","86","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
-https://restcountries.com/v3.1/name/spain","Get information about country"
-"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","1","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 6","This test will be success 6",""
-"passed","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","130","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
-https://restcountries.com/v3.1/name/usa","Get information about country"
-"broken","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","1","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be broken 4","This test will be broken 4",""
-"passed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will be success 9","This test will be success 9",""
-"passed","Sat May 25 01:11:43 GMT 2024","Sat May 25 01:11:43 GMT 2024","122","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","Get information about country","Get information about country
-https://restcountries.com/v3.1/name/ukraine","Get information about country"
-"failed","Sat May 25 01:11:44 GMT 2024","Sat May 25 01:11:44 GMT 2024","0","Suite","All","tests.AllStatusesTests","tests.AllStatusesTests","This test will fail 4","This test will fail 4",""
+"passed","Sat May 25 12:05:24 GMT 2024","Sat May 25 12:05:24 GMT 2024","196","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
+https://api.chucknorris.io/jokes/random?category=celebrity","Get a joke from Chuck with category (description)"
+"passed","Sat May 25 12:05:26 GMT 2024","Sat May 25 12:05:27 GMT 2024","535","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
+https://api.chucknorris.io/jokes/random?category=music","Get a joke from Chuck with category (description)"
+"passed","Sat May 25 12:05:24 GMT 2024","Sat May 25 12:05:25 GMT 2024","495","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
+https://api.chucknorris.io/jokes/random?category=dev","Get a joke from Chuck with category (description)"
+"passed","Sat May 25 12:05:27 GMT 2024","Sat May 25 12:05:28 GMT 2024","495","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Random joke from Chuck","Random joke from Chuck
+https://api.chucknorris.io/jokes/random","Get a random joke from Chuck (description)"
+"passed","Sat May 25 12:05:25 GMT 2024","Sat May 25 12:05:25 GMT 2024","491","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
+https://api.chucknorris.io/jokes/random?category=food","Get a joke from Chuck with category (description)"
+"failed","Sat May 25 12:05:21 GMT 2024","Sat May 25 12:05:23 GMT 2024","1832","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck (failed)","Joke from Chuck (failed)
+https://api.chucknorris.io/jokes/random/dev","Get a joke from Chuck | failed (description)"
+"passed","Sat May 25 12:05:27 GMT 2024","Sat May 25 12:05:27 GMT 2024","498","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
+https://api.chucknorris.io/jokes/random?category=sport","Get a joke from Chuck with category (description)"
+"broken","Sat May 25 12:05:21 GMT 2024","Sat May 25 12:05:21 GMT 2024","10","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck (broken)","Joke from Chuck (broken)","Get a joke from Chuck | broken (description)"
+"passed","Sat May 25 12:05:25 GMT 2024","Sat May 25 12:05:26 GMT 2024","481","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
+https://api.chucknorris.io/jokes/random?category=history","Get a joke from Chuck with category (description)"
+"skipped","Sat May 25 12:05:23 GMT 2024","Sat May 25 12:05:23 GMT 2024","1","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck (skip)","Joke from Chuck (skip)","Get a joke from Chuck | skip (description)"
+"passed","Sat May 25 12:05:23 GMT 2024","Sat May 25 12:05:24 GMT 2024","1017","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
+https://api.chucknorris.io/jokes/random?category=animal","Get a joke from Chuck with category (description)"
+"passed","Sat May 25 12:05:26 GMT 2024","Sat May 25 12:05:26 GMT 2024","496","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
+https://api.chucknorris.io/jokes/random?category=movie","Get a joke from Chuck with category (description)"
