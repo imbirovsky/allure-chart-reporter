@@ -67,7 +67,7 @@ To get started with this project:
     - `SLACK_BOT_TOKEN`: the token for your Slack bot
     - `SLACK_CHAT_ID`: the chat ID for your Slack bot
 
-<img src="https://qaband.com/wp-content/uploads/github_secrets.png" width="560">
+<img src="https://qaband.com/wp-content/uploads/github_secrets.png" width="480">
       
 4. After this, you need to run the tests. Once the tests are passed, a `reports` branch will be created.
 5. Set up GitHub Pages:
@@ -171,7 +171,7 @@ Please ensure that these secrets are set in the 'Secrets' section under 'Setting
 
 ## Test Results Chart Generator (generate_chart.py)
 
-<img src="https://qaband.com/wp-content/uploads/chart.png" width="560">
+<img src="https://qaband.com/wp-content/uploads/chart.png" width="480">
 
 This Python script generates a pie chart of test results and saves it as a PNG image. The chart shows the number and
 percentage of tests that passed, failed, were broken, or were skipped.
@@ -215,7 +215,7 @@ You can also customize the colors of the pie slices by modifying the `data` list
 
 ## Telegram Test Results Notifier
 
-<img src="https://qaband.com/wp-content/uploads/telegram.png" width="560">
+<img src="https://qaband.com/wp-content/uploads/telegram.png" width="480">
 
 This Python script sends a summary of test results along with a chart to a specified Telegram chat. The summary includes
 the total number of tests, and the number of tests that passed, failed, were broken, or were skipped.
@@ -301,9 +301,9 @@ private val requestData = "${HTTPS}${URL}${ACTION}${RANDOM}"
 In report you will see:
 
 ```
-   • Get information about country
-   https://restcountries.com/v3.1/name/country_404   
-   404 Not Found
+  • Joke from Chuck (failed)
+   https://api.chucknorris.io/jokes/random/dev
+   404 
 ```
 
 When a request is present in the test name, the response code will be displayed in the Allure report:
@@ -312,7 +312,7 @@ When a request is present in the test name, the response code will be displayed 
 
 ## Slack Test Results Notifier (send_slack.py)
 
-<img src="https://qaband.com/wp-content/uploads/slack.png" width="560">
+<img src="https://qaband.com/wp-content/uploads/slack.png" width="480">
 
 This Python script sends a summary of test results along with a chart to a specified Slack channel. The summary includes
 the total number of tests, and the number of tests that passed, failed, were broken, or were skipped.
