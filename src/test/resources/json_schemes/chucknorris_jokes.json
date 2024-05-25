@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "required": [
+    "categories",
+    "created_at",
+    "icon_url",
+    "id",
+    "updated_at",
+    "url",
+    "value"
+  ],
+  "properties": {
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "icon_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "id": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}
