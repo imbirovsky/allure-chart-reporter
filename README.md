@@ -1,7 +1,6 @@
 # Allure Chart Reporter
 
-<img src="https://qaband.com/wp-content/uploads/telegram_slack.png" width="720">
-
+<img src="https://qaband.com/wp-content/uploads/telegram_slack.png" alt="Allure Chart Reporter" width="720">
 
 Welcome to the Allure Chart Reporter project!
 
@@ -21,54 +20,51 @@ Read on to learn more about how to set up and use this project.
 
 - [Allure Chart Reporter](#allure-chart-reporter)
 - [Getting Started](#getting-started)
-    - [**Using this implementation in your own project**](#using-this-implementation-in-your-own-project)
-- [main.yml](#mainyml)
+    - [Using this implementation in your own project](#using-this-implementation-in-your-own-project)
+- [Configuration | `main.yml`](#configuration--mainyml)
     - [Workflow Triggers](#workflow-triggers)
     - [Environment Variables](#environment-variables)
     - [Workflow Steps](#workflow-steps)
     - [Secrets](#secrets)
-- [Test Results Chart Generator (generate_chart.py)](#test-results-chart-generator-generate_chartpy)
+- [Test Results Chart Generator | `generate_chart.py`](#test-results-chart-generator--generate_chartpy)
     - [Requirements](#requirements)
     - [Usage](#usage)
     - [Customization](#customization)
-- [Telegram Test Results Notifier](#telegram-test-results-notifier)
+- [Telegram Test Results Notifier | `send_telegram.py`](#telegram-test-results-notifier--send_telegrampy)
     - [Requirements](#requirements-1)
     - [Environment Variables](#environment-variables-1)
     - [Usage](#usage-1)
     - [Customization](#customization-1)
     - [Additional Features](#additional-features)
-- [Slack Test Results Notifier (send_slack.py)](#slack-test-results-notifier-send_slackpy)
+- [Slack Test Results Notifier | `send_slack.py`](#slack-test-results-notifier--send_slackpy)
+- [Known Issues and Limitations](#known-issues-and-limitations)
+    - [Message Character Limit in Telegram and Slack](#message-character-limit-in-telegram-and-slack)
 - [Tests Classes](#tests-classes)
+- [🇺🇦 Support Ukraine](#-support-ukraine)
 
 ## Getting Started
 
-This project is designed to be run on GitHub Actions. The workflow is configured to run tests, generate a test report,
-and send a summary of the test results along with a chart to Telegram and Slack.
+This project is designed to be run on GitHub Actions. The workflow is configured to run tests, generate a test report, and send a summary of the test results along with a chart to Telegram and Slack.
 
 To get started with this project:
 
 1. Fork or clone the repository to your own GitHub account.
 2. Navigate to the 'Actions' tab in your GitHub repository and enable GitHub Actions if it's not already enabled.
-
    
 > **Note**: GitHub Pages is a paid feature. You don't necessarily have to use it. In any case, you will receive a summary of the test results along with a chart, but without the ability to open the full report (button '🔗 Link to report'). 
 > To do this, you need to fill in the value for ALLURE_LINK with a link (e.g. https://github.com/)
 
-
-3. Set up the necessary secrets in the 'Secrets' section under 'Settings' in your GitHub repository. The required
+3. Set up the necessary secrets in the 'Secrets' section under 'Settings' - 'Secrets and variables' - 'Actions' in your GitHub repository. The required
    secrets are
-    - `ALLURE_LINK`: the link to the Allure report (your GitHub project - Settings - Pages - Your site is published
-      at `https://<username>.github.io/<repository>/`)
-
-    - `PERSONAL_ACCESS_TOKEN`: a personal access token with the `repo` scope (GitHub - Settings - Developer settings -
-      Personal access tokens - Generate new token - Select `repo` scope - Generate token - Copy token)
+    - `ALLURE_LINK`: the link to the Allure report (your GitHub project - 'Settings' - 'Pages' - Your site is published at `https://<username>.github.io/<repository>/`)
+    - `PERSONAL_ACCESS_TOKEN`: a personal access token with the `repo` scope (Your GitHub profile - 'Settings' - 'Developer settings' - 'Personal access tokens' - 'Generate new token' - Select `repo` scope - 'Generate token' - 'Copy token')
     - `TELEGRAM_BOT_TOKEN`: the token for your Telegram bot
     - `TELEGRAM_CHAT_ID`: the chat ID for your Telegram bot
     - `SLACK_BOT_TOKEN`: the token for your Slack bot
     - `SLACK_CHAT_ID`: the chat ID for your Slack bot
 
-<img src="https://qaband.com/wp-content/uploads/github_secrets.png" width="480">
-      
+<img src="https://qaband.com/wp-content/uploads/github_secrets.png" alt="GitHub Secrets" width="480">
+
 4. After this, you need to run the tests. Once the tests are passed, a `reports` branch will be created.
 5. Set up GitHub Pages:
     - go to your repository on GitHub
@@ -76,8 +72,8 @@ To get started with this project:
     - scroll down to the "GitHub Pages" section
     - in the "Source" dropdown menu, select the `reports` branch
     - click "Save"
-   
-<img src="https://qaband.com/wp-content/uploads/github_pages.png" width="560">
+
+<img src="https://qaband.com/wp-content/uploads/github_pages.png" alt="GitHub Pages" width="560">
 
 6. After this, you can run the tests in one of the following ways (`main.yml`):
     - `on: push`: the tests will run every time you push changes to the repository.
@@ -94,10 +90,10 @@ To get started with this project:
 
 **Please note that this project is not designed to be run locally on your machine.**
 
-
 ### Using this implementation in your own project
 
 If you do not wish to clone or fork the entire project, but want to use this implementation in your own project, you need to:  
+
 - Copy the `main.yml` file to your project at the path `.github/workflows/`
 - Copy the `generate_chart.py` file to your project at the path `chart/generate_chart.py`
 - Copy the `font.ttf` file to your project at the path `chart/font.ttf`
@@ -117,9 +113,9 @@ The structure of the project should be as follows:
 │   └── send_telegram.py
 └── src
     └── test
- </pre>
+</pre>
 
-## main.yml
+## Configuration | `main.yml`
 
 ### Workflow Triggers
 
@@ -167,11 +163,11 @@ The workflow requires the following secrets:
 - `SLACK_BOT_TOKEN`: the token for your Slack bot
 - `SLACK_CHAT_ID`: the chat ID for your Slack bot
 
-Please ensure that these secrets are set in the 'Secrets' section under 'Settings' in your GitHub repository.
+Please ensure that these secrets are set in the 'Secrets' section under 'Settings' - 'Secrets and variables' - 'Actions' in your GitHub repository.
 
-## Test Results Chart Generator (generate_chart.py)
+## Test Results Chart Generator | `generate_chart.py`
 
-<img src="https://qaband.com/wp-content/uploads/chart.png" width="480">
+<img src="https://qaband.com/wp-content/uploads/chart.png" alt="Chart" width="480">
 
 This Python script generates a pie chart of test results and saves it as a PNG image. The chart shows the number and
 percentage of tests that passed, failed, were broken, or were skipped.
@@ -213,9 +209,9 @@ You can customize the appearance of the chart by modifying the following variabl
 
 You can also customize the colors of the pie slices by modifying the `data` list in the `generate_chart` function.
 
-## Telegram Test Results Notifier
+## Telegram Test Results Notifier | `send_telegram.py`
 
-<img src="https://qaband.com/wp-content/uploads/telegram.png" width="480">
+<img src="https://qaband.com/wp-content/uploads/telegram.png" alt="Telegram" width="480">
 
 This Python script sends a summary of test results along with a chart to a specified Telegram chat. The summary includes
 the total number of tests, and the number of tests that passed, failed, were broken, or were skipped.
@@ -255,19 +251,19 @@ Where:
 - `report_link` is the URL of the Allure test report
 - `allure_report_path` is the directory where Allure results are stored
 
-> **It should be noted that if the test Failed / Broken / Skipped = 0, then the block with the status where the tests are 0 will not be displayed in the Telegram message**.
+**It should be noted that if the test Failed / Broken / Skipped = 0, then the block with the status where the tests are 0 will not be displayed in the Telegram message**.
 
 ### Customization
 
 You can customize the appearance of the message by modifying the `format_test_message` function in the script.
-The maximum number of tests to report in the message can be adjusted by changing the `MAX_TESTS_FOR_TELEGRAM_REPORT`
-variable
+The maximum number of tests to report in the message can be adjusted by changing the `MAX_TESTS_FOR_TELEGRAM_REPORT` variable
 
 ### Additional Features
+
 By default, the test name will be used for display in the list of failed / broken / skipped tests.
 
-Also, it's important to note that the ability to add a request and response code to the test name has been
-implemented. To do this, you need to update the test name as follows:
+Also, it's important to note that the ability to add a request and response code to the test name has been implemented. 
+To do this, you need to update the test name as follows:
 
 ```kotlin
     fun updateTestNameForAllureReport(param: String) {
@@ -289,7 +285,7 @@ Here's how you can use this for all GET requests:
 private val requestData = "${HTTPS}${URL}${ACTION}${RANDOM}"
 // https://api.chucknorris.io/jokes/random
 
-  fun sendGetRequest(requestUrl: String, code: Int = 200, contentType: String = "application/json"): ValidatableResponse {
+fun sendGetRequest(requestUrl: String, code: Int = 200, contentType: String = "application/json"): ValidatableResponse {
     updateTestNameForAllureReport("\n$requestUrl")
     val response = sendRequest().contentType(contentType).get(requestUrl).then()
     logResponse(response)
@@ -303,16 +299,12 @@ In report you will see:
 ```
   • Joke from Chuck (failed)
    https://api.chucknorris.io/jokes/random/dev
-   404 
+   404
 ```
 
-When a request is present in the test name, the response code will be displayed in the Allure report:
+## Slack Test Results Notifier | `send_slack.py`
 
-<img src="https://qaband.com/wp-content/uploads/telegram_with_url_and_code.png" width="480">
-
-## Slack Test Results Notifier (send_slack.py)
-
-<img src="https://qaband.com/wp-content/uploads/slack.png" width="480">
+<img src="https://qaband.com/wp-content/uploads/slack.png" alt="Slack" width="480">
 
 This Python script sends a summary of test results along with a chart to a specified Slack channel. The summary includes
 the total number of tests, and the number of tests that passed, failed, were broken, or were skipped.
@@ -320,6 +312,26 @@ the total number of tests, and the number of tests that passed, failed, were bro
 > The logic of the script is similar to the logic of the script for Telegram. The difference is that in Slack, the text and image will be sent as two separate messages.
 
 The difference is the formatting of the message for Slack and the use of a different API to send the message and image.
+
+## Known Issues and Limitations
+
+### Message Character Limit in Telegram and Slack
+
+Both Telegram and Slack have a limit on the number of characters that can be included in a single message. For Telegram,
+the limit is 4096 characters, and for Slack, the limit is 4000 characters. To manage this, a limit on the number of
+tests that will be displayed in a single message has been implemented. This limit is controlled by the
+variables `MAX_TESTS_FOR_TELEGRAM_REPORT` and `MAX_TESTS_FOR_SLACK_REPORT`.
+
+If the number of tests exceeds this limit, the message will display the first `n` tests (where `n` is the limit set
+by `MAX_TESTS_FOR_TELEGRAM_REPORT` or `MAX_TESTS_FOR_SLACK_REPORT`), followed by a line indicating the number of
+additional tests that were not included in the message. For example:
+
+```
+And 5 more failed tests...
+```
+
+Please be aware of this limitation when setting the values for `MAX_TESTS_FOR_TELEGRAM_REPORT`
+and `MAX_TESTS_FOR_SLACK_REPORT`.
 
 ## Tests Classes
 
@@ -352,6 +364,6 @@ You can donate through the following platforms:
 - [AZOV](https://www.azov.one/en/donate/)
 - [UNITED24](https://u24.gov.ua/)
 
-Remember, every little bit helps. 
+Remember, every little bit helps.
 
 Thank you for your support ❤️
