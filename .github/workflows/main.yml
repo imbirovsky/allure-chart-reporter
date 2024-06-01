@@ -88,7 +88,7 @@ jobs:
         id: generate_chart
         continue-on-error: true
         run: |
-          python3 chart/generate_chart.py ${TOTAL} ${PASSED} ${FAILED} ${BROKEN} ${SKIPPED} ${SUMDURATION}
+          python3 chart/generate_chart.py ${TOTAL} ${PASSED} ${FAILED} ${BROKEN} ${SKIPPED} ${DURATION}
 
       - name: Upload chart as artifact
         uses: actions/upload-artifact@v2
