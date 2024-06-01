@@ -37,10 +37,10 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     # Create the plot
     fig, ax = plt.subplots(figsize=(6.4 * 0.83, 4.8 * 0.83))
     wedges, texts, autotexts = ax.pie(sizes, colors=colors, startangle=90, autopct='%1.2f%%',
-                                      textprops={'color': 'black'})
+                                      textprops={'color': 'black', 'bbox': dict(facecolor='white', edgecolor=(169 / 255, 169 / 255, 169 / 255, 0.5), boxstyle='round,pad=0.5')})
 
     # Change the font size
-    plt.setp(autotexts, size=5, weight='bold')
+    plt.setp(autotexts, size=6)
 
     # Set the title
     plt.title("Test Results", fontproperties=CUSTOM_FONT, fontsize=12, color='black')
@@ -76,14 +76,16 @@ def generate_chart(total, passed, failed, broken, skipped, sum_duration):
     # Equal aspect ratio ensures that pie is drawn as a circle.
     ax.axis('equal')
 
-    # Add text in center
+    # Add text 'Total' in center with a box around it
     plt.text(0, 0.02, f'Total: {total}', horizontalalignment='center', verticalalignment='center', fontsize=11,
-             color='black', fontproperties=CUSTOM_FONT)
+             color='black', fontproperties=CUSTOM_FONT,
+             bbox=dict(facecolor='white', edgecolor=(169 / 255, 169 / 255, 169 / 255, 0.5), boxstyle='round,pad=0.5'))
 
-    # Add sum_duration text
+    # Add text 'duration' with a smaller font size and a box around it
     minutes, seconds = divmod(int(sum_duration) / 1000, 60)  # Convert from milliseconds to seconds
-    plt.text(0, -0.10, f'{int(minutes)}min {int(seconds)}sec', horizontalalignment='center', verticalalignment='center',
-             fontsize=6.5, color='gray', fontproperties=CUSTOM_FONT)
+    plt.text(0, -0.21, f'{int(minutes)}min {int(seconds)}sec', horizontalalignment='center', verticalalignment='center',
+             fontsize=6.5, color='gray', fontproperties=CUSTOM_FONT,
+             bbox=dict(facecolor='white', edgecolor=(169 / 255, 169 / 255, 169 / 255, 0.5), boxstyle='round,pad=0.5'))
 
     # Add the text "logo_name" to the up of the legend
     plt.text(1.82, 0.6, LOGO_NAME, horizontalalignment='center', verticalalignment='center', fontsize=11.5,
