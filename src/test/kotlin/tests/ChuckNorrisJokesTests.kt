@@ -30,7 +30,7 @@ class ChuckNorrisJokesTests {
     // Base request data for the API
     private val requestData = "${HTTPS}${URL}${ACTION}${RANDOM}"
     // Expected icon URL in the response
-    private val iconUrl = "https://assets.chucknorris.host/img/avatar/chuck-norris.png"
+    private val iconUrl = "https://api.chucknorris.io/img/avatar/chuck-norris.png"
 
     // Test to get a joke from Chuck with a specific category
     @Description("Get a joke from Chuck with category (description)")
