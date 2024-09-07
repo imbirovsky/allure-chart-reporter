@@ -1,23 +1,23 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"failed","Fri Sep 06 00:22:56 GMT 2024","Fri Sep 06 00:22:57 GMT 2024","1722","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck (failed)","Joke from Chuck (failed)
-https://api.chucknorris.io/jokes/random/dev","Get a joke from Chuck | failed (description)"
-"passed","Fri Sep 06 00:23:00 GMT 2024","Fri Sep 06 00:23:00 GMT 2024","191","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
-https://api.chucknorris.io/jokes/random?category=history","Get a joke from Chuck with category (description)"
-"passed","Fri Sep 06 00:23:00 GMT 2024","Fri Sep 06 00:23:01 GMT 2024","493","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
-https://api.chucknorris.io/jokes/random?category=movie","Get a joke from Chuck with category (description)"
-"passed","Fri Sep 06 00:22:58 GMT 2024","Fri Sep 06 00:22:59 GMT 2024","1057","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
+"passed","Sat Sep 07 00:22:24 GMT 2024","Sat Sep 07 00:22:25 GMT 2024","1249","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
 https://api.chucknorris.io/jokes/random?category=animal","Get a joke from Chuck with category (description)"
-"skipped","Fri Sep 06 00:22:58 GMT 2024","Fri Sep 06 00:22:58 GMT 2024","1","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck (skipped)","Joke from Chuck (skipped)","Get a joke from Chuck | skip (description)"
-"passed","Fri Sep 06 00:23:01 GMT 2024","Fri Sep 06 00:23:01 GMT 2024","501","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
-https://api.chucknorris.io/jokes/random?category=music","Get a joke from Chuck with category (description)"
-"passed","Fri Sep 06 00:23:01 GMT 2024","Fri Sep 06 00:23:02 GMT 2024","505","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
-https://api.chucknorris.io/jokes/random?category=sport","Get a joke from Chuck with category (description)"
-"passed","Fri Sep 06 00:23:00 GMT 2024","Fri Sep 06 00:23:00 GMT 2024","503","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
-https://api.chucknorris.io/jokes/random?category=food","Get a joke from Chuck with category (description)"
-"passed","Fri Sep 06 00:22:59 GMT 2024","Fri Sep 06 00:23:00 GMT 2024","481","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
-https://api.chucknorris.io/jokes/random?category=dev","Get a joke from Chuck with category (description)"
-"passed","Fri Sep 06 00:22:59 GMT 2024","Fri Sep 06 00:22:59 GMT 2024","515","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
-https://api.chucknorris.io/jokes/random?category=celebrity","Get a joke from Chuck with category (description)"
-"passed","Fri Sep 06 00:23:02 GMT 2024","Fri Sep 06 00:23:02 GMT 2024","467","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Random joke from Chuck","Random joke from Chuck
+"passed","Sat Sep 07 00:22:27 GMT 2024","Sat Sep 07 00:22:28 GMT 2024","703","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
+https://api.chucknorris.io/jokes/random?category=history","Get a joke from Chuck with category (description)"
+"skipped","Sat Sep 07 00:22:24 GMT 2024","Sat Sep 07 00:22:24 GMT 2024","1","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck (skipped)","Joke from Chuck (skipped)","Get a joke from Chuck | skip (description)"
+"passed","Sat Sep 07 00:22:30 GMT 2024","Sat Sep 07 00:22:31 GMT 2024","693","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Random joke from Chuck","Random joke from Chuck
 https://api.chucknorris.io/jokes/random","Get a random joke from Chuck (description)"
-"broken","Fri Sep 06 00:22:56 GMT 2024","Fri Sep 06 00:22:56 GMT 2024","11","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck (broken)","Joke from Chuck (broken)","Get a joke from Chuck | broken (description)"
+"passed","Sat Sep 07 00:22:26 GMT 2024","Sat Sep 07 00:22:27 GMT 2024","705","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
+https://api.chucknorris.io/jokes/random?category=food","Get a joke from Chuck with category (description)"
+"broken","Sat Sep 07 00:22:22 GMT 2024","Sat Sep 07 00:22:22 GMT 2024","10","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck (broken)","Joke from Chuck (broken)","Get a joke from Chuck | broken (description)"
+"failed","Sat Sep 07 00:22:22 GMT 2024","Sat Sep 07 00:22:24 GMT 2024","1876","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck (failed)","Joke from Chuck (failed)
+https://api.chucknorris.io/jokes/random/dev","Get a joke from Chuck | failed (description)"
+"passed","Sat Sep 07 00:22:25 GMT 2024","Sat Sep 07 00:22:26 GMT 2024","691","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
+https://api.chucknorris.io/jokes/random?category=celebrity","Get a joke from Chuck with category (description)"
+"passed","Sat Sep 07 00:22:26 GMT 2024","Sat Sep 07 00:22:26 GMT 2024","716","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
+https://api.chucknorris.io/jokes/random?category=dev","Get a joke from Chuck with category (description)"
+"passed","Sat Sep 07 00:22:28 GMT 2024","Sat Sep 07 00:22:28 GMT 2024","698","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
+https://api.chucknorris.io/jokes/random?category=movie","Get a joke from Chuck with category (description)"
+"passed","Sat Sep 07 00:22:29 GMT 2024","Sat Sep 07 00:22:30 GMT 2024","739","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
+https://api.chucknorris.io/jokes/random?category=sport","Get a joke from Chuck with category (description)"
+"passed","Sat Sep 07 00:22:28 GMT 2024","Sat Sep 07 00:22:29 GMT 2024","721","Suite","All","tests.ChuckNorrisJokesTests","tests.ChuckNorrisJokesTests","Joke from Chuck with category","Joke from Chuck with category
+https://api.chucknorris.io/jokes/random?category=music","Get a joke from Chuck with category (description)"
