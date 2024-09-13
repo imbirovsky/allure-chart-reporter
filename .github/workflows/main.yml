@@ -91,14 +91,14 @@ jobs:
           python3 chart/generate_chart.py ${TOTAL} ${PASSED} ${FAILED} ${BROKEN} ${SKIPPED} ${DURATION}
 
       - name: Upload chart as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         continue-on-error: true
         with:
           name: chart
           path: chart.png
 
       - name: Download chart artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         continue-on-error: true
         with:
           name: chart
